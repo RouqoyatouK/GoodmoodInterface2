@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add-planing</ion-title>
+    <ion-buttons slot="start">
+      <ion-button> <a href="tab/planing">Cancel</a> </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+
+
+  <ion-card class="ion-align-self-center" >
+    <ion-item>
+      <ion-textarea   placeholder="Write task here" name="nomplanning" [(ngModel)]="nomplanning"></ion-textarea>
+   </ion-item>
+
+   <!-- <div *ngIf="nomplanning=null; else elseBlock">Content to render when condition is true.</div>
+<ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
+
+   <!-- <div *ngIf="nomplanning=!null" class="invalid-feedback">
+    Ce planing existe déjà</div>
+    <div *ngIf="nomplanning=null">Planning creer avec succes</div> -->
+
+
+
+   <ion-button class="ion-margin" expand="block" (click)="AjouterUnNewPlaning()" >Ajouter</ion-button>
+
+
+
+  </ion-card>
+
+
+
+
+
+
+
+
+
+
+</ion-content>

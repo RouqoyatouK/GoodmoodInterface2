@@ -1,0 +1,59 @@
+<ion-content  >
+  <img src="../../../assets/Group 31 (2).png" alt=""  >
+  <div class="login-section ion-padding" >
+    <!-- <div class="headng ion-padding">
+    <h1>Salut Roocky</h1>
+    <p>Planifie ta journée</p>
+
+    <div class="card cardi" >
+      <div class="row">
+
+        <div class="col-6  py-3">
+          <img src="../../../assets/bg1.jpg" alt=""width="80px" height="80px" style=" border-radius: 50%;" >
+        </div>
+        <div class="col-6 py-3">
+          <div class="row" style="margin-top: 10px;">
+           <a href="tab/todolist" id="nomday"> <div class="col-11  ">Journée1</div></a>
+            <div class="col-11  ">Le 24, 04, 12</div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <ion-row>
+      <ion-col >
+        <h4 style="text-align: center; margin-top: -10px;">Salut <span style="color: blue;">  @Roocky</span> planifie <span>ta journée </span> </h4>
+      </ion-col>
+    </ion-row>
+
+
+
+<ion-row style="overflow: scroll;">
+  <ion-col size="6" *ngFor="let list of  toutlesplanningdunuser">
+    <div class="cards-list" >
+
+      <div class="card 1">
+        <div class="card_image"> <img src="https://i.redd.it/b3esnz5ra34y.jpg" /> </div>
+        <div class="card_title title-white">
+          <a [routerLink]="[url, list.idplanning]">
+            <p id="tache">{{list.nomplanning}} </p> </a>
+          <span style="font-size: 10px;">{{list.date}}</span>
+        </div>
+      </div>
+
+      </div>
+
+</ion-col>
+</ion-row>
+</div>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content >
+
+
+

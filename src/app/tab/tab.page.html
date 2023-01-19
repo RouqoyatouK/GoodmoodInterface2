@@ -1,0 +1,59 @@
+<ion-content >
+
+<ion-tabs  >
+  <ion-fab vertical="bottom" horizontal="center" translucent="true">
+    <ion-fab-button routerLink="/tab/home">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <ion-tab-bar slot="bottom" class="tabbar">
+    <ion-tab-button tab="favoris">
+      <ion-icon name="heart-outline">
+        <ion-label>Favoris</ion-label>
+      </ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="search" class="search">
+      <ion-icon name="search-outline">
+        <ion-label>Search</ion-label>
+      </ion-icon>
+    </ion-tab-button>
+
+    <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z"
+        fill="red" fill-rule="evenodd">
+      </path>
+    </svg>
+
+    <!-- <ion-tab-button tab="home">
+      <ion-icon name="home-outline">
+        <ion-label>Home</ion-label>
+      </ion-icon>
+    </ion-tab-button> -->
+
+    <ion-tab-button tab="write" class="wishlist">
+      <ion-icon name="pencil-outline">
+        <ion-label>Ecris</ion-label>
+      </ion-icon>
+    </ion-tab-button>
+
+    <!-- <ion-tab-button tab="comments">
+      <ion-icon name="chatbox-outline">
+        <ion-label>Commentaire</ion-label>
+      </ion-icon>
+    </ion-tab-button> -->
+
+    <ion-tab-button tab="planning">
+      <ion-icon name="clipboard-outline">
+        <ion-label>ToDo List</ion-label>
+      </ion-icon>
+    </ion-tab-button>
+
+
+
+
+  </ion-tab-bar>
+</ion-tabs>
+</ion-content>
