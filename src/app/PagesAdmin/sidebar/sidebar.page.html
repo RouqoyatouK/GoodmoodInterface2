@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <ion-app>
   <ion-split-pane contentId="main" when="lg" >
     <!--  the side menu  -->
@@ -20,7 +21,7 @@
         <!-- image de l'utilisateur -->
         <div class="row mt-2">
           <div class="col align-self-center text-center" routerLink="/dashboard/profil">
-            <img  class="imageUtilisateur" alt="Silhouette of mountains" src="../../assets/avatar.png" />
+            <img  class="imageUtilisateur" alt="Silhouette of mountains" src="../../../assets/1.jpg" /> 
             <!-- <img *ngIf="Utilisateur.image!=null" class="imageUtilisateur" alt="Silhouette of mountains" src="{{Utilisateur.image}}" /> -->
 
           </div>
@@ -35,9 +36,9 @@
             </div>
           </div>
         </div>
-        <div class="row ">
+        <div class="row " >
           <div class="col">
-            <div class="text-center statusUtilisateur">
+            <div class="text-center statusUtilisateur" style="margin-bottom: 30px;">
               <!-- {{Utilisateur.role.libellerole}} -->ROLE_ADMI
             </div>
           </div>
@@ -45,18 +46,28 @@
         <!-- le reste des contenu de sidebar -->
         <div class="row mt-2 ">
 
-          <ion-item  lines="none" routerDirection='root' [routerLinkActiveOptions]={exact:true} routerLink="/dashboard/accueil"
+          <ion-item  lines="none" routerDirection='root' [routerLinkActiveOptions]={exact:true} routerLink="/sidebar/sidebar/accueiladmin"
             routerLinkActive='active-item'>
             <img class="ion-icon Active" src="../assets/icon/icon/accueil une fois active.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/accueil.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Accueil</ion-label>
           </ion-item>
-          <ion-item  lines="none" routerLink="/dashboard/allactivity" routerLinkActive='active-item'>
-            <img class="ion-icon Active" src="../assets/icon/icon/activite une fois active.png" alt="" srcset="">
-            <img class="ion-icon Desactive" src="../assets/icon/icon/activiter.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
-            <ion-label class="lienPage">Activités</ion-label>
+
+
+          <ion-item  lines="none" routerLink="/sidebar/sidebar/domaine" routerLinkActive='active-item'>
+            <img class="ion-icon Desactive" src="../assets/icon/icon/accueil.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
+            <ion-label class="lienPage">Domaine</ion-label>
           </ion-item>
-          <ion-item  lines="none" routerLink="/dashboard/entite" routerLinkActive='active-item'>
+
+          <ion-item  lines="none" routerDirection='root' [routerLinkActiveOptions]={exact:true} routerLink="/sidebar/sidebar/citation"
+          routerLinkActive='active-item'>
+          <img class="ion-icon Active" src="../assets/icon/icon/accueil une fois active.png" alt="" srcset="">
+          <img class="ion-icon Desactive" src="../assets/icon/icon/accueil.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
+          <ion-label class="lienPage">Citation</ion-label>
+        </ion-item>
+
+        
+          <!-- <ion-item  lines="none" routerLink="/sidebar" routerLinkActive='active-item'>
             <img class="ion-icon Active" src="../assets/icon/icon/entite une fois toucher.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/entite.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Entités</ion-label>
@@ -65,8 +76,8 @@
             <img class="ion-icon Active" src="../assets/icon/icon/personnel une fois active.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/personnel.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Personnels</ion-label>
-          </ion-item>
-          <ion-item  routerLinkActive='active-item'>
+          </ion-item> -->
+          <!-- <ion-item  routerLinkActive='active-item'>
             <img class="ion-icon Active" src="../assets/icon/icon/reporting active.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/reporting.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Reporting</ion-label>
@@ -85,7 +96,7 @@
             <img class="ion-icon Active" src="../assets/icon/icon/tirage une fois active.png" alt="" srcset="">
             <img class="ion-icon Desactive" src="../assets/icon/icon/tirage.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Tirage</ion-label>
-          </ion-item>
+          </ion-item> -->
 
 
 

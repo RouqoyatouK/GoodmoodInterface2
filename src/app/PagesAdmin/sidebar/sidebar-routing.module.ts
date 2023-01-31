@@ -4,55 +4,99 @@ import { Routes, RouterModule } from '@angular/router';
 import { SidebarPage } from './sidebar.page';
 
 const routes: Routes = [
-//   {
-//     path: '',
-//     component: SidebarPage
-//   },
+
+  {
+    path: 'sidebar',
+    component: SidebarPage,
+    children: [
+
+                    //path home
+                          {
+                            path:'accueiladmin',
+                            children: [
+                              {
+                                path: '',
+                                loadChildren: ()=>import('../../PagesAdmin/accueiladmin/accueiladmin.module').then(m=>m.AccueiladminPageModule)
+                              }
+                            ]
+                          },
+
+                    //path domaine
+
+                    {
+                      path:'domaine',
+                      children: [
+                        {
+                          path: '',
+                          loadChildren: ()=>import('../../PagesAdmin/domaine/domaine.module').then(m=>m.DomainePageModule)
+                        }
+                      ]
+                    },
+
+                     //path citation
+
+                     {
+                      path:'citation',
+                      children: [
+                        {
+                          path: '',
+                          loadChildren: ()=>import('../../PagesAdmin/citation/citation.module').then(m=>m.CitationPageModule)
+                        }
+                      ]
+                    },
+
+
+
+                    //Path redirect
+
+                    {
+                      path: '',
+                      redirectTo: 'sidebar/accueiladmin',
+                      pathMatch:'full'
+                    }
+
+
+    ]
+  },
+
+  {
+    path: '',
+    redirectTo: 'sidebar/accueilAdmin',
+    pathMatch:'full'
+  }
+
+
+
+
+
+
 
 //   {
-//     path: '',
-//     redirectTo: 'signin',
-//     pathMatch: 'full'
-//   },
-//   {
-//     path: 'sidebar',
-//     loadChildren: () => import('../../PagesAdmin/sidebar/sidebar.module').then( m => m.SidebarPageModule)
-//   },
+//     path:"",
+//     component:SidebarPage,
+//     children:[
+//       {
+//         path: '',
+//         redirectTo: 'accueilAdmin',
+//         pathMatch: 'full'
+//       },
+//     {
+//        path: 'accueilAdmin',
+//       loadChildren: () => import('../../PagesAdmin/accueil-admin/accueil-admin.module').then( m => m.AccueilAdminPageModule)
+//     },
 
-//   {
-//     path: 'accueilAdmin',
-//     loadChildren: () => import('../../PagesAdmin/accueil-admin/accueil-admin.module').then( m => m.AccueilAdminPageModule)
-//   },
+//     {
+//       path: 'creercitation',
+//       loadChildren: () => import('../../PagesAdmin/creercitation/creercitation.module').then( m => m.CreercitationPageModule)
+//     },
 
-
-
-
-// ];
-
-
-
-{
-  path: '',
-  component: SidebarPage,
-  children:[
-    {
-      path: '',
-      redirectTo: '',
-      pathMatch: 'full'
-    },
-   
-    {
-       path: 'accueilAdmin',
-      loadChildren: () => import('../../PagesAdmin/accueil-admin/accueil-admin.module').then( m => m.AccueilAdminPageModule)
-    },
-
-    {
-      path: '**',
-      redirectTo: '',
-      pathMatch: 'full'
-    },
-  ]
-}
+//     {
+//       path: '',
+//       redirectTo: 'accueilAdmin',
+//       pathMatch: 'full'
+//     },
+//   ]
+// }
 ];
 
 @NgModule({

@@ -6,13 +6,13 @@ ion-split-pane {
 
 
   ion-menu {
-    --background: var(--ion-color-warning-contrast) !important;
+    --background: linear-gradient(#EBBFD0, #113E4D) !important;
 
     ion-content {
-      --background: var(--ion-color-warning-contrast) !important;
+      --background: linear-gradient(#EBBFD0, #113E4D) !important;
 
       ion-item {
-        --background: var(--ion-color-warning-contrast) !important;
+        --background:linear-gradient(#EBBFD0, #113E4D) !important;
         --color: #FFFFFF !important;
         letter-spacing: 2px;
         // font-family: myfon1;
@@ -21,8 +21,8 @@ ion-split-pane {
       }
 // Style appliquer au diferent test de sideBar
       .imageUtilisateur {
-        width: 120px;
-        // height: 90px;
+        width: 170px;
+        height: 170px;
         border-radius: 50%;
       }
 
@@ -31,7 +31,7 @@ ion-split-pane {
         font-style: normal;
         font-size: large;
         font-weight: bolder;
-        color: #FF6200;
+        color: rgb(197, 197, 221);
       }
 
       .statusUtilisateur {
@@ -40,6 +40,7 @@ ion-split-pane {
         font-weight: bolder;
         font-size: medium;
         color: #FFFF;
+        
       }
 
       .lienPage {
@@ -61,12 +62,12 @@ ion-split-pane {
         display: none;
       }
 
-      .active-item {
-        border-bottom: #FF6200 2px solid;
-        border-right: #FF6200 15px solid;
-        border-radius: 0px 0px 10px 0px;
-        color: #FF6200 !important;
-      }
+      // .active-item {
+      //   border-bottom: #FF6200 2px solid;
+      //   border-right: #FF6200 15px solid;
+      //   border-radius: 0px 0px 10px 0px;
+      //   color: #FF6200 !important;
+      // }
 
       .active-item .Active {
         display: inline;

@@ -4,20 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ChoixdomainePageRoutingModule } from './choixdomaine-routing.module';
+import { DomainePageRoutingModule } from './domaine-routing.module';
 
-import { ChoixdomainePage } from './choixdomaine.page';
+import { DomainePage } from './domaine.page';
 import { NgxPaginationModule } from 'ngx-pagination';
-
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ChoixdomainePageRoutingModule,
+    DomainePageRoutingModule,
     NgxPaginationModule
   ],
-  declarations: [ChoixdomainePage]
+  declarations: [DomainePage]
 })
-export class ChoixdomainePageModule {}
+export class DomainePageModule {}

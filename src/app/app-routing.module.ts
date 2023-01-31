@@ -46,10 +46,25 @@ const routes: Routes = [
     path: 'sidebar',
     loadChildren: () => import('./PagesAdmin/sidebar/sidebar.module').then( m => m.SidebarPageModule)
   },
+ 
   {
-    path: 'accueil-admin',
-    loadChildren: () => import('./PagesAdmin/accueil-admin/accueil-admin.module').then( m => m.AccueilAdminPageModule)
+    path: 'citation',
+    loadChildren: () => import('./PagesAdmin/citation/citation.module').then( m => m.CitationPageModule)
+  },
+  // {
+  //   path: 'domaine',
+  //   loadChildren: () => import('./PagesAdmin/domaine/domaine.module').then( m => m.DomainePageModule)
+  // },
+  {
+    path: 'accueiladmin',
+    loadChildren: () => import('./PagesAdmin/accueiladmin/accueiladmin.module').then( m => m.AccueiladminPageModule)
+  },  {
+    path: 'domaine',
+    loadChildren: () => import('./PagesAdmin/domaine/domaine.module').then( m => m.DomainePageModule)
   }
+
+
+
 
   // {
   //   path: 'login',

@@ -5,8 +5,13 @@
       <ion-button (click)="cancel()">Cancel</ion-button>
     </ion-buttons>-->
 
-    <ion-buttons slot="start">
+    <!-- <ion-buttons slot="start">
       <ion-button> <a href="tab/todolist">Cancel</a> </ion-button>
+    </ion-buttons> -->
+
+
+    <ion-buttons slot="end">
+      <ion-button (click)="modal.dismiss()"><span aria-hidden="true" style="font-size: 30px;">&times;</span></ion-button>
     </ion-buttons>
 
 

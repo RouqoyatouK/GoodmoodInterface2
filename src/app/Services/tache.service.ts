@@ -23,11 +23,10 @@ export class TacheService {
   AjouterUneTacheAUnPanning(designation: any, date: Date, completed: boolean, nomtypetache: any, nompriority: any, id: any){
 
     const addtache = {
-      "designation": "designation",
-      "completed": "completed",
-      "date": "date"
+      "designation": designation,
+      "date": date
     }
 
-    return this.http.post(`${this.env.api}/tache/add/${id}/${nomtypetache}/${nompriority}`, nomtypetache)}
+    return this.http.post(`${this.env.api}/tache/add/${id}/${nomtypetache}/${nompriority}`, addtache)}
 
 }

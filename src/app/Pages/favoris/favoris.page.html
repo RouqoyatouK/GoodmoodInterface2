@@ -10,103 +10,22 @@
 </div> -->
 
 <ion-content>
-  <img src="../../../assets/favoris.png" alt="" id="img">
-  <ion-card color="primary">
-    <ion-card-content>
-      j'ecris pour me liberer car mon coeur est tellement serrer qu'il risque d'exploser
-            </ion-card-content>
-    <ion-card-header>
-      <!-- <ion-card-title>Card Title</ion-card-title> -->
-      <ion-card-subtitle>@Roocky</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
+  <div class="container essai">
 
+  <div class="div" style="margin-top: 150px;" >
 
-  <ion-card style="background-image: url(../../../assets/bg.png);">
-    <ion-card-content>
-      j'ecris pour me liberer car mon coeur est tellement serrer qu'il risque d'exploser
-            </ion-card-content>
-    <ion-card-header>
-      <!-- <ion-card-title>Card Title</ion-card-title> -->
-      <ion-card-subtitle>@Roocky</ion-card-subtitle>
-    </ion-card-header>
+    <ion-card *ngFor="let item of toutlesfavoris" >
+      <img src="{{item.imagecitation}}" alt="" class="card_image">
+      <ion-card-content>{{item.contenu}}</ion-card-content>
+      <ion-card-header>
+        <!-- <ion-card-title>Card Title</ion-card-title> -->
+        <ion-card-subtitle>@Roocky</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
 
-  </ion-card>
+   
 
-  <ion-card color="tertiary">
-    <ion-card-content>
-      j'ecris pour me liberer car mon coeur est tellement serrer qu'il risque d'exploser
-            </ion-card-content>
-    <ion-card-header>
-      <!-- <ion-card-title>Card Title</ion-card-title> -->
-      <ion-card-subtitle>@Roocky</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
-
-  <!-- <ion-card color="success">
-    <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      Card Content
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card color="warning">
-    <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      Card Content
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card color="danger">
-    <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      Card Content
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card color="light">
-    <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      Card Content
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card color="medium">
-    <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      Card Content
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card color="dark">
-    <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-      Card Content
-    </ion-card-content>
-  </ion-card> -->
+  </div>
+  </div>
 
 </ion-content>

@@ -43,13 +43,11 @@ export class LoginPage implements OnInit {
         if(this.isLoggedIn == true){
 //this.roles contient le role du user connecter donc  [0]  permet de recuperer le premier role si ce dernier
 // est egale au role user il l'envoie sur le tab sinon il l'envoi au niveau du sidebar
-
           if(this.roles [0] == "ROLE_USER")
           {
-             this.route.navigateByUrl("/tab/home")
+             this.route.navigateByUrl("tab/home")
             }else {
-              this.route.navigateByUrl("/sidebar/accueilAdmin")
-
+              this.route.navigateByUrl("sidebar/accueiladmin")
 
             }
         }

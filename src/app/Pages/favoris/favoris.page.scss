@@ -7,4 +7,27 @@
   margin-right: auto;
 }
 
+.container{
+  background-image: url('../../../assets/favoriss.png');
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-size: cover;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
 
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 30px;
+  object-fit: cover;
+}

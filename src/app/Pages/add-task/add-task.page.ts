@@ -90,9 +90,6 @@ id:any;
 
 
 AjouterUnNewTache(){
-
-
-
   this.tacheService.AjouterUneTacheAUnPanning(this.designation, this.date, this.completed, this.nomtypetache, this.nompriority, this.id).subscribe(data=>{
 
   })
