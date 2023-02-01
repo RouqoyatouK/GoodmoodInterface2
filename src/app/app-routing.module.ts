@@ -61,6 +61,10 @@ const routes: Routes = [
   },  {
     path: 'domaine',
     loadChildren: () => import('./PagesAdmin/domaine/domaine.module').then( m => m.DomainePageModule)
+  },
+  {
+    path: 'splash',
+    loadChildren: () => import('./pages/splash/splash.module').then( m => m.SplashPageModule)
   }
 
 

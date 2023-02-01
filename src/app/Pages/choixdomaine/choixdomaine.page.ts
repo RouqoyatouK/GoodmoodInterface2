@@ -33,7 +33,7 @@ export class ChoixdomainePage implements OnInit {
   trouverIdDomaine(idom:number){
     console.log("hhhhhhhhhhhhhhhhhhhhh"+idom)
     this.listDomaines.push(idom);
-    }
+  }
 
 
   AjouterDomainePourUses(){

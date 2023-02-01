@@ -29,4 +29,11 @@ export class TacheService {
 
     return this.http.post(`${this.env.api}/tache/add/${id}/${nomtypetache}/${nompriority}`, addtache)}
 
+
+    //Tache Complet
+    TacheComplet(idtache: any): Observable<any>{
+     const completTache= { }
+      return this.http.put(`${this.env.api}/tache/complet/${idtache}`, completTache)
+    }
+
 }

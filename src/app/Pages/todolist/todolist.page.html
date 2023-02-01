@@ -14,7 +14,7 @@
   <ion-card  class="ion-margin" *ngFor="let list of toutlestachedunplanning">
     <ion-card-header>
 
-      <ion-card-subtitle [style.color]="list.value.nompriority === 'urgent' ? 'red' : (list.value.nompriority === 'pas urgent' ? 'green' : 'orange')">
+      <ion-card-subtitle [style.color]="list.priority.nompriority === 'urgent' ? 'red' : (list.priority.nompriority === 'pas urgent' ? 'green' : 'orange')" >
        {{list.typetache.nomtypetache}}
       </ion-card-subtitle>
 
@@ -26,9 +26,9 @@
           <ion-icon *ngIf="item.value.itemPriority === 'middle'" color="warning" size="small" name="ellipse"></ion-icon>
           <ion-label> {{ item.value.itemName}}</ion-label>
         </ion-item> -->
-        <ion-icon *ngIf="list.value.nompriority === 'urgent'"  color="danger" size="small" name="ellipse"></ion-icon>
-        <ion-icon *ngIf="list.value.nompriority === 'pas urgent'" color="success" size="small" name="ellipse"></ion-icon>
-        <ion-icon *ngIf="list.value.nompriority === 'moins urgent'"  color="warning" size="small" name="ellipse"></ion-icon>
+        <ion-icon *ngIf="list.priority.nompriority === 'urgent'"  color="danger" size="small" name="ellipse"></ion-icon>
+        <ion-icon *ngIf="list.priority.nompriority === 'pas urgent'" color="success" size="small" name="ellipse"></ion-icon>
+        <ion-icon *ngIf="list.priority.nompriority === 'moins urgent'"  color="warning" size="small" name="ellipse"></ion-icon>
         <ion-label> {{list.designation}}</ion-label>
       </ion-item>
 
@@ -40,11 +40,11 @@
 
     <ion-row class="">
       <div class="col" size="3"> <a href=""><ion-icon name="create-outline"></ion-icon></a>
-        <p>Update</p></div>
+        <p>Modifier</p></div>
+      <div class="col" size="3"> <a id="{{list.idtache}}" (click)="CompleterTache(list.idtache)">  <ion-icon name="create-outline" slot="start" ></ion-icon></a>
+        <p>Complet</p></div>
       <div class="col" size="3"> <ion-icon name="create-outline"></ion-icon>
-        <p>Update</p></div>
-      <div class="col" size="3"> <ion-icon name="create-outline"></ion-icon>
-        <p>Update</p></div>
+        <p>Supprimer</p></div>
 
     </ion-row>
 
@@ -99,7 +99,7 @@
         <ion-item>
           <ion-label >typetache</ion-label>
           <ion-select name="nomtypetache" [(ngModel)]="nomtypetache">
-            <ion-select-option value="{{list.idtypttache}}" *ngFor="let list of recuperertypetache">{{list.nomtypetache}}</ion-select-option>
+            <ion-select-option value="{{liste.idtypttache}}" *ngFor="let liste of recuperertypetache">{{liste.nomtypetache}}</ion-select-option>
           </ion-select>
       
           <ion-chip color="primary" outline="true">

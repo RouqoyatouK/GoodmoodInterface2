@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CitationService } from 'src/app/Services/citation.service';
+import { StorageService } from 'src/app/Services/storage.service';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +21,7 @@ export class HomePage implements OnInit {
   // ];
 
 
-  constructor() { }
+  constructor(private citationService: CitationService, private token: StorageService) { }
   public option = {
     // slidesPerView: 1.5,
     // centeredSlides: true,
@@ -42,7 +44,15 @@ export class HomePage implements OnInit {
 
   }
 
+  //ecuperer les citation d'un users
+  idusers: any;
+  toutlescitation: any;
+
   ngOnInit() {
+    this.idusers= this.token.getUser();
+    this.citationService.AfficherLesCitationDunUser(this.idusers.id).subscribe(data=>{
+      this.toutlescitation= data
+    })
   }
 
 }

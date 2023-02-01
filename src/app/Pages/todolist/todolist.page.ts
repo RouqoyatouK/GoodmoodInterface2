@@ -44,7 +44,6 @@ export class TodolistPage  {
 
 
   //Ajouter une tache Pour un user
-
 designation: any;
 date: any;
 completed: any;
@@ -56,9 +55,21 @@ nompriority: any;
 
 
 
+//Ajouter tache
 AjouterUnNewTache(){
   this.tacheService.AjouterUneTacheAUnPanning(this.designation, this.date, this.completed, this.nomtypetache, this.nompriority, this.id).subscribe(data=>{
 console.log(data)
+  })
+}
+//Completer tache
+idtache: any;
+
+      
+CompleterTache(idtache:any){
+
+  this.tacheService.TacheComplet(idtache).subscribe(data=>{
+
+    console.log("llll"+ this.idtache)
   })
 }
 
@@ -70,18 +81,6 @@ console.log(data)
     recuperertypetache: any;
     idusers: any
     data: any;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -108,8 +107,16 @@ tptache= ''
 
     this.tacheService.AfficherTacheDunPlanning(idplanning).subscribe(data=>{
       this.toutlestachedunplanning=data
+
+      console.log("verification: " + JSON.stringify(this.toutlestachedunplanning))
+
+      
+      
     console.log(this.toutlestachedunplanning)
      // this.tptache=this.toutlestachedunplanning.nomtypetache
+
+     //Completer tache d'un planning recuperer idtache
+    // this.idtache= this.toutlestachedunplanning.id
 
     })
 
