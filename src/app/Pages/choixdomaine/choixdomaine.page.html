@@ -14,9 +14,6 @@
 
 
 <ion-content  >
-
-
-
 <div class="container essai" style="overflow: scroll;" >
   <!-- <div class="left"> -->
 
@@ -52,7 +49,7 @@
 <ion-col size="6" *ngFor="let item of Affichertoutlesdomaines ;" >
   <div class="cards-list" >
 
-    <div class="card 1">
+    <div class="card 1" style="border-radius: 20px; box-shadow: 2px 2px 3px gray;">
 
       <div class="row" >
         <div class="row" style="margin-left: 25px;" >
@@ -61,7 +58,7 @@
          </div>
           
          <div class="row" style="top: 20px; margin-left: 5px;">
-          <ion-item>
+          <ion-item >
             <ion-checkbox slot="start" id="domaine{{item.iddomaine}}" ></ion-checkbox>
             <ion-label>{{item.nomdomaine}} </ion-label>
           </ion-item>
@@ -86,14 +83,6 @@
 
      
 
-
  
 </div>
-
-
-
-
-
-
-
 </ion-content>

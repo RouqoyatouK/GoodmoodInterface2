@@ -79,7 +79,7 @@
         </div> -->
 
         <!-- Submit button -->
-        <button class="btn btn-primary btn-block mb-4">Sign in</button>
+        <button class="btn btn-primary btn-block mb-4" style="text-align: center;">Sign in</button>
 
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
           Signup failed!<br />{{ errorMessage }}
@@ -88,14 +88,7 @@
         <!-- Register buttons -->
         <div class="text-center">
           <p>Vous êtes dejà inscris? <a href="#!">Connexion</a></p>
-          <p>Ou inscrivez-vous avec:</p>
-          <button type="button" class="btn btn-link btn-floating mx-1">
-            <i class="fa-brands fa-google"></i>
-          </button>
-
-          <button type="button" class="btn btn-link btn-floating mx-1">
-            <i class="fab fa-facebook"></i>
-          </button>
+          
 
           <!-- <button type="button" class="btn btn-link btn-floating mx-1">
             <i class="fab fa-twitter"></i>

@@ -14,7 +14,7 @@
   <ion-card  class="ion-margin" *ngFor="let list of toutlestachedunplanning">
     <ion-card-header>
 
-      <ion-card-subtitle [style.color]="list.priority.nompriority === 'urgent' ? 'red' : (list.priority.nompriority === 'pas urgent' ? 'green' : 'orange')" >
+      <ion-card-subtitle style="text-transform: uppercase;" [style.color]="list.priority.nompriority === 'urgent' ? 'red' : (list.priority.nompriority === 'pas urgent' ? 'green' : 'orange')" >
        {{list.typetache.nomtypetache}}
       </ion-card-subtitle>
 
@@ -29,7 +29,7 @@
         <ion-icon *ngIf="list.priority.nompriority === 'urgent'"  color="danger" size="small" name="ellipse"></ion-icon>
         <ion-icon *ngIf="list.priority.nompriority === 'pas urgent'" color="success" size="small" name="ellipse"></ion-icon>
         <ion-icon *ngIf="list.priority.nompriority === 'moins urgent'"  color="warning" size="small" name="ellipse"></ion-icon>
-        <ion-label> {{list.designation}}</ion-label>
+        <ion-label  style="text-transform: capitalize;"> {{list.designation}}</ion-label>
       </ion-item>
 
     </ion-card-header>
