@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AddPlaningPageRoutingModule } from './add-planing-routing.module';
+import { NotifPageRoutingModule } from './notif-routing.module';
 
-import { AddPlaningPage } from './add-planing.page';
+import { NotifPage } from './notif.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AddPlaningPageRoutingModule
+    NotifPageRoutingModule
   ],
-  declarations: [AddPlaningPage]
+  declarations: [NotifPage]
 })
-export class AddPlaningPageModule {}
+export class NotifPageModule {}

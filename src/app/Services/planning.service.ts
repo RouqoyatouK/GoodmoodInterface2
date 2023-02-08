@@ -13,11 +13,14 @@ export class PlanningService {
   constructor(private http: HttpClient) { }
 
   //Ajouter un new planning
-  AjouterPlanning(nomplanning: String,idusers:any):Observable<any>{
+  AjouterPlanning(nomplanning: String, datedebut: Date, datefin: Date, idusers:any):Observable<any>{
     const data: FormData = new FormData();
     const planing = {
       "nomplanning": nomplanning,
      // "idusers": "idusers"
+     "datedebut": datedebut,
+     "datefin": datefin,
+
     }
     return this.http.post(`${this.env.api}/planning/add/${idusers}`, planing)
   }

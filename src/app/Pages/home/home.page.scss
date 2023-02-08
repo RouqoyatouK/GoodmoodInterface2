@@ -16,7 +16,7 @@ ion-content {
   .main-header {
     height: 45vh;
     width: 150%;
-    background: linear-gradient(90deg, var(--ion-color-tertiary) 10%, var(--ion-color-primary) 100%);
+    background: linear-gradient(90deg, #1D6CCC 10%, #2088E2 100%);
     box-shadow: 0 1px 10px var(--ion-color-light);
     border-radius: 0 0 50% 50%;
     margin-left: -14vh;
@@ -209,9 +209,12 @@ body {
 }
 
 .a-box {
-  display: inline-block;
+  // display: inline-block;
   width: 240px;
   text-align: center;
+  margin: auto;
+  justify-content: center;
+  align-items:center ;
 }
 
 .img-container {
@@ -256,4 +259,81 @@ body {
   margin: 20px 0px 10px 0px;
   color: #04bcff;
   font-size: 18px;
+}
+
+
+
+//kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk poppup debut
+.login-section
+{
+  height: 68vh;
+  width: 100%;
+  max-width: 912px;
+  background: white ;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  margin: auto;
+  border-top-right-radius: 60px;
+  // border-top-left-radius: 46px;
+  box-shadow: 1px 2px 4px gray;
+
+
+}
+
+// Affichage des themes
+.card3{
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding-top: 40px;
+justify-content: space-between;
+gap: 20px;
+
+
+position: relative;
+// width: 348px;
+height: 70px;
+// left: 36px;
+//top: -12%;
+width: 90%;
+border: 1px solid rgb(253, 251, 251);
+box-shadow: 1px 2px 3px gray, -1px -2px -3px gray;
+border-top-right-radius: 30px;
+border-bottom-left-radius: 20px;
+}
+.card4{
+  //--background: #29B6F6;
+  // width: 25%;
+  // height: 100px;
+  // position: relative;
+  top: -5%;
+  // left: -6%;
+  // border: 15px;
+  position: absolute;
+  width: 65px;
+  height: 55px;
+  // padding-top: -35%;
+  justify-content: space-between;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 20px;
+
+// left: 0px;
+// top: 0px;
+  
+}
+
+
+
+//Afficher les thematiques choisis par user
+.annonce{
+  text-align: center; 
+  position: absolute; 
+  left: 70px; 
+  top: 20px;
+  text-decoration: none;
+color: black;
+text-indent: 17px;
+font-size: 18px;
 }

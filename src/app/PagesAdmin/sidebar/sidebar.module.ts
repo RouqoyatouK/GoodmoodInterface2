@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SidebarPageRoutingModule } from './sidebar-routing.module';
 
 import { SidebarPage } from './sidebar.page';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SidebarPageRoutingModule
+    SidebarPageRoutingModule,
+    NgChartsModule
   ],
   declarations: [SidebarPage]
 })

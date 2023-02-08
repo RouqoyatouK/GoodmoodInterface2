@@ -117,9 +117,18 @@
   </div>
 
 
-  <div class="col-2" style="border: 1px solid black; width: 150px;">
+  <div class="col-2" style="border: 1px solid white; width: 300px; box-shadow: 1px 2px 3px gray;">
 		
-    
+    <circle-progress
+  [percent]="nbDomaine"
+  [radius]="100"
+  [outerStrokeWidth]="16"
+  [innerStrokeWidth]="8"
+  [outerStrokeColor]="'#78C000'"
+  [innerStrokeColor]="'#C7E596'"
+  [animation]="true"
+  [animationDuration]="300"
+></circle-progress>
   </div>
 
 </div>

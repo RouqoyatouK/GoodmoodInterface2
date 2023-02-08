@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonModal, ModalController } from '@ionic/angular';
 import { PlanningService } from 'src/app/Services/planning.service';
 import { StorageService } from 'src/app/Services/storage.service';
-import { AddPlaningPage } from '../add-planing/add-planing.page';
 import { OverlayEventDetail } from '@ionic/core/components';
 
 
@@ -41,11 +40,16 @@ export class PlaningPage implements OnInit {
 
   //Ajouter Planing
   nomplanning: any;
+  datedebut: any;
+  datefin: any;
  //idusers: any
+ messagee: any;
   AjouterUnNewPlaning(){
-    this.planningService.AjouterPlanning(this.nomplanning,this.user.id).subscribe(data=>{
-
+    this.planningService.AjouterPlanning(this.nomplanning, this.datedebut, this.datefin,  this.user.id).subscribe(data=>{
+console.log(data)
+this.messagee= data.message;
     })
+    
   }
 
 
@@ -77,13 +81,13 @@ url: string="/tab/todolist";
   }
 
 
-//popup
-  async openModal(){
-    const modal = await this.modalCtlr.create({
-        component: AddPlaningPage
-      });
-      await modal.present();
+// //popup
+//   async openModal(){
+//     const modal = await this.modalCtlr.create({
+//         component: AddPlaningPage
+//       });
+//       await modal.present();
 
-     }
+//      }
 
 }

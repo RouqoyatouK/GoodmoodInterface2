@@ -47,7 +47,7 @@ export class LoginPage implements OnInit {
           {
              this.route.navigateByUrl("tab/home")
             }else {
-              this.route.navigateByUrl("sidebar/accueiladmin")
+              this.route.navigateByUrl("/sidebar/sidebar/accueiladmin")
 
             }
         }

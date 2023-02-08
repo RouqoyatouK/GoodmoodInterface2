@@ -9,43 +9,44 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
 
 
-<ion-content class= "signup" style="--background-color: black !important;" >
-  <div class="background">
-    <div class="shape"></div>
-    <div class="shape"></div>
-</div>
-<form *ngIf="!isLoggedIn"
-name="form"
-(ngSubmit)="f.form.valid && onSubmit()"
-#f="ngForm"
-novalidate>
+<ion-content >
 
-    <h3 id="lbl">Login Here</h3>
-
-    <label for="username" id="lbl">Username</label>
-    <input type="text" placeholder="Email or Phone" id="username"  class="form-control"
-    name="username"
-    [(ngModel)]="form.username"
-    required
-    #username="ngModel"
-    [ngClass]="{ 'is-invalid': f.submitted && username.errors }">
-    <!--kkkkkkkkkkkkkkkkkkkkkkkkkkkkk-->
+  <div class="wrapper">
+    <div class="logo">
+        <img src="../../../assets/121421-login.gif" alt="">
+    </div>
+    <div class="text-center mt-4 name">
+        GOODMOOD
+    </div>
+    <form class="p-3 mt-3" *ngIf="!isLoggedIn"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate>
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input type="text" name="userName" id="username" placeholder="Username" [(ngModel)]="form.username"
+            required
+            #username="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && username.errors }">
+        </div>
+        <!--kkkkkkkkkkkkkkkkkkkkkkkkkkkkk-->
 
     <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
       Username is required!
     </div>
 
 
-    <label for="password"id="lbl">Password</label>
-    <input type="password" placeholder="Password" id="password"  class="form-control"
-    name="password"
-    [(ngModel)]="form.password"
-    required
-    minlength="6"
-    #password="ngModel"
-    [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
+        <div class="form-field d-flex align-items-center">
+            <span class="fas fa-key"></span>
+            <input type="password" name="password" id="password" placeholder="Password" [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
+        </div>
 
-       <!--kkkkkkkkkkkkkkkkkkkkkkkkkkkkk-->
+         <!--kkkkkkkkkkkkkkkkkkkkkkkkkkkkk-->
 
        <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
         <div *ngIf="password.errors['required']">Password is required</div>
@@ -55,23 +56,19 @@ novalidate>
       </div>
 
 
+        <button class="btn mt-3">Connexion</button>
 
-
-    <button>Log In</button>
-    
-    <div class="form-group">
-      <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
-        Login failed: {{ errorMessage }}
-      </div>
+        <div class="form-group">
+          <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+            Login failed: {{ errorMessage }}
+          </div>
+        </div>
+        
+    </form>
+    <div class="text-center fs-6">
+        <a href="#">Mot de passe oublié?</a> or <a href="#">Inscription</a>
     </div>
-
-
-    <div class="social">
-      <div class="go"><i class="fab fa-google"></i>  Google</div>
-      <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-    </div>
-</form>
-
+</div>
 
 
 

@@ -3,8 +3,11 @@
    <!-- <ion-button fill="clear" slot="start" color="light">
      <ion-icon slot="icon-only" name="menu"></ion-icon>
    </ion-button> -->
-    <ion-avatar slot="end">
-      <img src="assets/icons/4.png" />
+    <ion-avatar slot="start">
+      <img src="../../../assets/Group 36 (3).png" style="width: 50px;" />
+    </ion-avatar>
+    <ion-avatar slot="end" class="ion-margin-start">
+      <img src="../../../assets/2.png" />
     </ion-avatar>
   </ion-item>
 </ion-header>
@@ -45,16 +48,16 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="ion-margin-horizontal">
+    <ion-row  class="ion-margin">
 
-      <ion-col size="12" >
+      <ion-col size="12"  *ngFor="let item of toutlescitation">
 
-        <div class="a-box">
+        <div class="a-box" >
           <div class="img-container">
             <div class="img-inner">
               <div class="inner-skew">
-                <img src="https://images.unsplash.com/photo-1584791097929-aa825fe8e1e1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
-                <ion-icon name="shape"></ion-icon>
+                <img src="{{item.imagecitation}}">
+               
               </div>
             </div>
           </div>
@@ -62,85 +65,25 @@
             <h3>A blue bird</h3>
             <div style="overflow: auto; height: 80px; width: 200px; text-align: justify;">
           
-              Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.
+{{item.contenu}}              <div>
+                <h5 slot="end">kkk</h5>
+
+              </div>
           </div>
+
         </div>
       </div>
-        <!-- <div class="cards-list" *ngFor="let item of toutlescitation">
     
-          <div class="card 1">
-            <div class="card_image"> <img src="https://i.redd.it/b3esnz5ra34y.jpg" /> </div>
-            <div class="card_title title-white">
-              <p id="tache">mmmmmmmmmmmmmmmmmmmmmm</p>
-          </div>
-          <div class="card_title title-white">
-            <p id="tache">{{item.ecrivain}} </p>
-        </div>
-            
-          </div>
-        
-    
-          </div> -->
     
     </ion-col> 
 
 
-      <!-- <ion-col  size="6">
-        <ion-card style="background-image: url(../../../assets/2.png);">
-          <ion-card-content style="color: black;">
-            j'ecris pour me liberer car mon coeur est tellement serrer qu'il risque d'exploser
-                  </ion-card-content>
-          <ion-card-header>
-            <ion-card-subtitle style="color: black;" >@Roocky</ion-card-subtitle>
-          </ion-card-header>
-
-        </ion-card>
-      </ion-col> -->
 
 
     </ion-row>
 
 
-    <ion-row >
-       <ion-col size="12" >
-
-        <div class="a-box">
-          <div class="img-container">
-            <div class="img-inner">
-              <div class="inner-skew">
-                <img src="https://images.unsplash.com/photo-1584791097929-aa825fe8e1e1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
-              </div>
-            </div>
-          </div>
-          <div class="text-container">
-            <h3>A blue bird</h3>
-            <div style="overflow: auto; height: 80px; width: 200px; text-align: justify;">
-          
-              Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.
-          </div>
-        </div>
-      </div>
-        <!-- <div class="cards-list" *ngFor="let item of toutlescitation">
-    
-          <div class="card 1">
-            <div class="card_image"> <img src="https://i.redd.it/b3esnz5ra34y.jpg" /> </div>
-            <div class="card_title title-white">
-              <p id="tache">mmmmmmmmmmmmmmmmmmmmmm</p>
-          </div>
-          <div class="card_title title-white">
-            <p id="tache">{{item.ecrivain}} </p>
-        </div>
-            
-          </div>
-        
-    
-          </div> -->
-    
-    </ion-col> 
-    
-
-   
-  </ion-row>
+ 
 
 
    
@@ -154,9 +97,94 @@
  
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button  expand="block">
+    <ion-fab-button id="open-modalthema"  expand="block">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+
+
+  <!--Modallllllll-->
+  <ion-modal trigger="open-modalthema" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()"><span aria-hidden="true" style="font-size: 30px;">&times;</span></ion-button>
+          </ion-buttons>
+          <ion-title>Ajoute de nouvelle thématiques</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      
+
+      <ion-content>
+        <img src="../../../assets/Group 31 (2).png" alt=""  >
+        <div class="login-section ion-padding" >
+          <div class="container">
+            <div class="row">
+            
+              <!--Tout les thematique chooisis pasr lutilisateur-->
+              <div class="col-12 text-center mt-4 mb-4">
+
+                <ion-slides [options]="slideOpts " >
+                
+
+                  <ion-slide *ngFor="let item of domaine">
+                    <ion-chip  outline="true">
+                      <ion-label color="black">{{item.nomdomaine}}</ion-label>
+                      <ion-button fill="clear">
+                        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+                      </ion-button>
+                    </ion-chip>   
+                  </ion-slide>
+                  
+                </ion-slides>
+                          
+              </div>
+
+
+
+              <!--liste thematique-->
+             <div class="col-12 text-center mt-4 mb-4">
+                <ion-card class="card3" routerLink="/ajout-annonce">
+                  <ion-card class="card4" routerLink="/ajout-annonce">
+                    <img style="display: flex; position: relative; width: 100%;  " src="../../../assets/1.jpg" alt=""> 
+            
+                  </ion-card>
+                  
+                  
+                  <!-- <ion-icon class="point" name="ellipsis-vertical-circle-outline"></ion-icon> -->
+                  <!-- <a href="" class="annonce">Créer votre annonce</a> -->
+                  <h2  class="annonce">Mathematiques <input class="form-check-input text-center" style="" type="checkbox" value=""  ></h2>
+                </ion-card> 
+                <ion-card class="card3" routerLink="/ajout-annonce">
+                  <ion-card class="card4" routerLink="/ajout-annonce">
+                    <img style="display: flex; position: relative; width: 100%;  " src="../../../assets/1.jpg" alt=""> 
+            
+                  </ion-card>
+                  
+                  
+                  <!-- <ion-icon class="point" name="ellipsis-vertical-circle-outline"></ion-icon> -->
+                  <!-- <a href="" class="annonce">Créer votre annonce</a> -->
+                  <h2  class="annonce">Mathematiques <input class="form-check-input text-center" style="" type="checkbox" value=""  ></h2>
+                </ion-card> 
+                <ion-card class="card3" routerLink="/ajout-annonce">
+                  <ion-card class="card4" routerLink="/ajout-annonce">
+                    <img style="display: flex; position: relative; width: 100%;  " src="../../../assets/1.jpg" alt=""> 
+            
+                  </ion-card>
+                  
+                  
+                  <!-- <ion-icon class="point" name="ellipsis-vertical-circle-outline"></ion-icon> -->
+                  <!-- <a href="" class="annonce">Créer votre annonce</a> -->
+                  <h2  class="annonce">Mathematiques <input class="form-check-input text-center" style="" type="checkbox" value=""  ></h2>
+                </ion-card>            
+             </div>
+            </div>
+          </div>
+      </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 
 </ion-content>

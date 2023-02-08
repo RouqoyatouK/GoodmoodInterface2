@@ -13,6 +13,7 @@ export class DomainePage implements OnInit {
   pages : number = 1;
   // Afficher tout les domaines
   Affichertoutlesdomaines: any;
+  nbDomaine: any;
 
   constructor(private domaineService: DomaineService, private tokenStorage: StorageService) { }
 
@@ -23,6 +24,8 @@ export class DomainePage implements OnInit {
 
     this.domaineService.AfficherToutlesdomaines().subscribe(data=>{
       this.Affichertoutlesdomaines=data;
+      this.nbDomaine= this.Affichertoutlesdomaines.length
+      console.log(this.Affichertoutlesdomaines.length)
     })
   }
 

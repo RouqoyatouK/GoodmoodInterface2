@@ -24,11 +24,11 @@ const routes: Routes = [
                     //path search
 
                     {
-                      path:'search',
+                      path:'notif',
                       children: [
                         {
                           path: '',
-                          loadChildren: ()=>import('../Pages/search/search.module').then(m=>m.SearchPageModule)
+                          loadChildren: ()=>import('../Pages/notif/notif.module').then(m=>m.NotifPageModule)
                         }
                       ]
                     },

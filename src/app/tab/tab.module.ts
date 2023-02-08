@@ -8,7 +8,6 @@ import { TabPageRoutingModule } from './tab-routing.module';
 
 import { TabPage } from './tab.page';
 import { HomePageModule } from '../Pages/home/home.module';
-import { SearchPageModule } from '../Pages/search/search.module';
 
 @NgModule({
   imports: [
@@ -16,9 +15,9 @@ import { SearchPageModule } from '../Pages/search/search.module';
     FormsModule,
     IonicModule,
     TabPageRoutingModule,
-
     HomePageModule,
-    SearchPageModule
+    
+    
   ],
   declarations: [TabPage]
 })

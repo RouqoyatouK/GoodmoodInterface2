@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { PlaningPageRoutingModule } from './planing-routing.module';
 
 import { PlaningPage } from './planing.page';
-import { AddPlaningPage } from '../add-planing/add-planing.page';
 
 @NgModule({
   imports: [

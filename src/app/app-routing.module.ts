@@ -38,10 +38,7 @@ const routes: Routes = [
     path: 'inscription',
     loadChildren: () => import('./Pages/inscription/inscription.module').then( m => m.InscriptionPageModule)
   },
-  {
-    path: 'add-planing',
-    loadChildren: () => import('./Pages/add-planing/add-planing.module').then( m => m.AddPlaningPageModule)
-  },
+ 
   {
     path: 'sidebar',
     loadChildren: () => import('./PagesAdmin/sidebar/sidebar.module').then( m => m.SidebarPageModule)
@@ -58,14 +55,16 @@ const routes: Routes = [
   {
     path: 'accueiladmin',
     loadChildren: () => import('./PagesAdmin/accueiladmin/accueiladmin.module').then( m => m.AccueiladminPageModule)
-  },  {
-    path: 'domaine',
-    loadChildren: () => import('./PagesAdmin/domaine/domaine.module').then( m => m.DomainePageModule)
   },
   {
-    path: 'splash',
-    loadChildren: () => import('./pages/splash/splash.module').then( m => m.SplashPageModule)
-  }
+    path: 'domaine',
+    loadChildren: () => import('./PagesAdmin/domaine/domaine.module').then( m => m.DomainePageModule)
+  },  {
+    path: 'notif',
+    loadChildren: () => import('./Pages/notif/notif.module').then( m => m.NotifPageModule)
+  },
+
+ 
 
 
 

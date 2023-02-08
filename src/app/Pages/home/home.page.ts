@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonModal, ModalController } from '@ionic/angular';
 import { CitationService } from 'src/app/Services/citation.service';
 import { StorageService } from 'src/app/Services/storage.service';
+import { OverlayEventDetail } from '@ionic/core/components';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -21,8 +24,26 @@ export class HomePage implements OnInit {
   // ];
 
 
-  constructor(private citationService: CitationService, private token: StorageService) { }
-  public option = {
+  constructor(private citationService: CitationService, private token: StorageService, private userService: UserService) { }
+  @ViewChild(IonModal) modal: IonModal;
+  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
+  name: string;
+
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
+
+  confirm() {
+    this.modal.dismiss(this.name, 'confirm');
+  }
+
+  onWillDismiss(event: Event) {
+    const ev = event as CustomEvent<OverlayEventDetail<string>>;
+    if (ev.detail.role === 'confirm') {
+      this.message = `Hello, ${ev.detail.data}!`;
+    }
+  }
+  public slideOpts = {
     // slidesPerView: 1.5,
     // centeredSlides: true,
     // loop: true,
@@ -33,7 +54,7 @@ export class HomePage implements OnInit {
     spaceBetween: 10,
     centeredSlides: true,
     autoplay: true,
-    loop: true,
+    //loop: true,
     coverflowEffect: {
     rotate: 0,
     stretch: 0,
@@ -43,6 +64,10 @@ export class HomePage implements OnInit {
   },
 
   }
+  //Recuperer un user par son id pour avoir ces domaines
+  
+  toutcekiconcerneuser: any;
+  domaine: any;
 
   //ecuperer les citation d'un users
   idusers: any;
@@ -52,6 +77,14 @@ export class HomePage implements OnInit {
     this.idusers= this.token.getUser();
     this.citationService.AfficherLesCitationDunUser(this.idusers.id).subscribe(data=>{
       this.toutlescitation= data
+      console.log(data)
+    })
+
+    //afficher les domaine d'un user
+    this.userService.AfficherUsersparid(this.idusers.id).subscribe(data=>{
+      this.toutcekiconcerneuser= data;
+      this.domaine=this.toutcekiconcerneuser.domaines
+      //console.log(this.domaine)
     })
   }
 

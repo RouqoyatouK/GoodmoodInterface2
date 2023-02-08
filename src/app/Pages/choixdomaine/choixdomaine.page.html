@@ -1,8 +1,8 @@
-<!-- <ion-header>
+<ion-header>
   <ion-toolbar>
-    <ion-title>choixdomaine</ion-title>
+    <ion-title style="text-align: center;">Choisis tes thématiques</ion-title>
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -13,76 +13,46 @@
 
 
 
-<ion-content  >
-<div class="container essai" style="overflow: scroll;" >
-  <!-- <div class="left"> -->
-
-     
-<div style="margin-top: 150px; " > 
-
-  <div style="margin-left: 180px;">
-
-  <div class="searchBar">
-    <div class="InputSearch">
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill=" #FF7900" class="bi bi-search"
-            viewBox="0 0 16 16">
-            <path
-                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-        </svg>
-        <input type="text" name="motCle" id="motCle" placeholder="Recherche liste">
-
-    </div>
-</div>
+<ion-content>
+  <div class="container">
 
 
-</div>
-
-
-<ion-row style="margin-left: 180px;">
-  <ion-button shape="round" href="/tab/home" (click)="AjouterDomainePourUses()"  >Suivant </ion-button>
-
-</ion-row>
-
-<ion-row style="margin-top: 50px;" >
-  
-  
-<ion-col size="6" *ngFor="let item of Affichertoutlesdomaines ;" >
-  <div class="cards-list" >
-
-    <div class="card 1" style="border-radius: 20px; box-shadow: 2px 2px 3px gray;">
-
-      <div class="row" >
-        <div class="row" style="margin-left: 25px;" >
-          <img src="../../../assets/math.png" alt="" style="width: 137px; height: 90px;">
-
-         </div>
-          
-         <div class="row" style="top: 20px; margin-left: 5px;">
-          <ion-item >
-            <ion-checkbox slot="start" id="domaine{{item.iddomaine}}" ></ion-checkbox>
-            <ion-label>{{item.nomdomaine}} </ion-label>
-          </ion-item>
-          </div>
-
-      </div>
+    <div class="row">
     
-    </div>
-
-    </div>
-
-</ion-col>
-<!-- <div class="pagination">
-<pagination-controls (pageChange)=" pages = $event"> </pagination-controls>
-</div> -->
-</ion-row>
-
-
-
-</div>
+      <div class="col-12 text-center mt-4 mb-4">
+      <img id="imgsrc" src="../../../assets/2.png" alt="">      </div>
       
+    </div>
 
-     
 
- 
-</div>
+    <div class="row mb-5">
+      <div class="col-6 text-center ">
+        <div class="input-group col-6">
+          <input class="form-control border-end-0 border rounded-pill" type="text" value="search" id="example-search-input">
+          <span class="input-group-append">
+              <button class="btn btn-outline-secondary bg-white border-start-0 border rounded-pill " type="button">
+                  <i class="fa fa-search"></i>
+              </button>
+          </span>
+   </div>     
+    </div>
+
+      <div class="col-6 text-center ">
+        <ion-button shape="round" href="/tab/home" (click)="AjouterDomainePourUses()"  >Suivant </ion-button>      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6  text-center mt-6" *ngFor="let item of Affichertoutlesdomaines ;" >
+            <ion-card style="border-radius: 12px; overflow: hidden;">
+          <img alt="Silhouette of mountains" src="{{item.imagedomaine}}" />
+          <ion-card-header>
+            <!-- <ion-card-title><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> Card Title</ion-card-title> -->
+            <ion-card-subtitle style="font-weight: bold;"><input class="form-check-input" type="checkbox" value="" id="domaine{{item.iddomaine}}">{{item.nomdomaine}}</ion-card-subtitle>
+          </ion-card-header>
+            </ion-card>
+      </div>
+   
+      
+    </div>
+  </div>
 </ion-content>
