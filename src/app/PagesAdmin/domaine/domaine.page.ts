@@ -33,6 +33,7 @@ export class DomainePage implements OnInit {
   imagedomaine: any;
   nomdomaine: String;
   users: any
+  message: any
 //recuperer l'image
 
 Recupererlimage(event: any){
@@ -45,6 +46,7 @@ Recupererlimage(event: any){
 //   })
 
 this.domaineService.AjouterDomaine(this.nomdomaine, this.users.id, this.imagedomaine).subscribe(data=>{
+  this.message= data.message;
 
 })
 }

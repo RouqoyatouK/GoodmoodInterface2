@@ -32,8 +32,8 @@
         </div>
         <!--kkkkkkkkkkkkkkkkkkkkkkkkkkkkk-->
 
-    <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
-      Username is required!
+    <div *ngIf="username.errors && f.submitted" >
+      Champs obligatoires
     </div>
 
 
@@ -41,17 +41,17 @@
             <span class="fas fa-key"></span>
             <input type="password" name="password" id="password" placeholder="Password" [(ngModel)]="form.password"
             required
-            minlength="6"
+            minlength="8"
             #password="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
         </div>
 
          <!--kkkkkkkkkkkkkkkkkkkkkkkkkkkkk-->
 
-       <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
-        <div *ngIf="password.errors['required']">Password is required</div>
+       <div *ngIf="password.errors && f.submitted" >
+        <div *ngIf="password.errors['required']"> Champs obligatoire</div>
         <div *ngIf="password.errors['minlength']">
-          Password must be at least 6 characters
+          Le passwword doit être plus de 8 caractères
         </div>
       </div>
 
@@ -60,13 +60,13 @@
 
         <div class="form-group">
           <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
-            Login failed: {{ errorMessage }}
+           Connexion faible: {{ errorMessage }}
           </div>
         </div>
         
     </form>
     <div class="text-center fs-6">
-        <a href="#">Mot de passe oublié?</a> or <a href="#">Inscription</a>
+        <a href="#">Mot de passe oublié?</a> or <a href="/tab/login">Inscription</a>
     </div>
 </div>
 

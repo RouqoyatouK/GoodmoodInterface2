@@ -5,7 +5,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'inscription',
     pathMatch:'full'
   },
 
@@ -59,10 +59,15 @@ const routes: Routes = [
   {
     path: 'domaine',
     loadChildren: () => import('./PagesAdmin/domaine/domaine.module').then( m => m.DomainePageModule)
-  },  {
+  },
+  {
     path: 'notif',
     loadChildren: () => import('./Pages/notif/notif.module').then( m => m.NotifPageModule)
+  },  {
+    path: 'profil',
+    loadChildren: () => import('./Pages/profil/profil.module').then( m => m.ProfilPageModule)
   },
+
 
  
 

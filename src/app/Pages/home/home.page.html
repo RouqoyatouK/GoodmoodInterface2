@@ -1,4 +1,5 @@
-<ion-header class="ion-no-border">
+
+<ion-header class="ion-no-border"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <ion-item lines="none">
    <!-- <ion-button fill="clear" slot="start" color="light">
      <ion-icon slot="icon-only" name="menu"></ion-icon>
@@ -6,7 +7,7 @@
     <ion-avatar slot="start">
       <img src="../../../assets/Group 36 (3).png" style="width: 50px;" />
     </ion-avatar>
-    <ion-avatar slot="end" class="ion-margin-start">
+    <ion-avatar slot="end" class="ion-margin-start"routerLink="/profil">
       <img src="../../../assets/2.png" />
     </ion-avatar>
   </ion-item>
@@ -62,11 +63,16 @@
             </div>
           </div>
           <div class="text-container">
-            <h3>A blue bird</h3>
+            <h3>Domaines</h3>
             <div style="overflow: auto; height: 80px; width: 200px; text-align: justify;">
           
 {{item.contenu}}              <div>
-                <h5 slot="end">kkk</h5>
+                <h5 slot="end"> 
+                  <!-- <button id="heart-button">❤️</button> -->
+                  <button class="heart-button">
+                    <i class="fa-light fa-heart"></i>                  </button>
+                  
+                </h5>
 
               </div>
           </div>
@@ -187,4 +193,12 @@
     </ng-template>
   </ion-modal>
 
+  <script>
+    //like button
+  const button = document.querySelector("#heart-button");
+
+          button.addEventListener("click", function() {
+           button.classList.toggle("liked");
+});
+  </script>
 </ion-content>

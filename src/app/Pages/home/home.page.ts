@@ -4,6 +4,8 @@ import { CitationService } from 'src/app/Services/citation.service';
 import { StorageService } from 'src/app/Services/storage.service';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { UserService } from 'src/app/Services/user.service';
+import { AuthService } from 'src/app/Services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -24,10 +26,11 @@ export class HomePage implements OnInit {
   // ];
 
 
-  constructor(private citationService: CitationService, private token: StorageService, private userService: UserService) { }
+  constructor(private citationService: CitationService, private token: StorageService, private userService: UserService, private auth: AuthService, private router: Router) { }
   @ViewChild(IonModal) modal: IonModal;
   message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
   name: string;
+  luActive = false;
 
   cancel() {
     this.modal.dismiss(null, 'cancel');
@@ -80,6 +83,7 @@ export class HomePage implements OnInit {
       console.log(data)
     })
 
+
     //afficher les domaine d'un user
     this.userService.AfficherUsersparid(this.idusers.id).subscribe(data=>{
       this.toutcekiconcerneuser= data;
@@ -87,5 +91,9 @@ export class HomePage implements OnInit {
       //console.log(this.domaine)
     })
   }
+      
+
+  
+
 
 }

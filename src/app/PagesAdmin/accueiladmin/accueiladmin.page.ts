@@ -7,7 +7,7 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./accueiladmin.page.scss'],
 })
 export class AccueiladminPage implements OnInit {
-
+ 
   public chart: any;
 
   aly=129;

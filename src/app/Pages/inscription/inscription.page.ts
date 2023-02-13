@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
+import { StorageService } from 'src/app/Services/storage.service';
 
 @Component({
   selector: 'app-inscription',
@@ -8,6 +9,7 @@ import { AuthService } from 'src/app/Services/auth.service';
   styleUrls: ['./inscription.page.scss'],
 })
 export class InscriptionPage implements OnInit {
+  message: any;
 
   form: any = {
     username: null,
@@ -19,7 +21,11 @@ export class InscriptionPage implements OnInit {
   errorMessage = '';
 
 
-  constructor(private authService: AuthService,
+  isLoggedIn = false;
+  isLoginFailed = false;
+  roles: string[] = [];
+
+  constructor(private authService: AuthService, private storageService: StorageService,
     //pour rediriger vers accueuil
 
 private route: Router) { }
@@ -35,10 +41,30 @@ private route: Router) { }
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        //pour rediriger vers accueuil
-        if(this.isSuccessful == true){
-          this.route.navigateByUrl("tab/home")
+        
+        this.message= data.message;
+        console.log(this.message)
+
+        //pour loger directement apres inscription
+        if(this.isSuccessful){
+          this.authService.login(username, password).subscribe({
+            next: data => {
+              this.storageService.saveUser(data);
+             
+              this.isLoginFailed = false;
+              this.isLoggedIn = true;
+              this.roles = this.storageService.getUser().roles;
+
+           //pour rediriger vers le choix de domaine si le login est 
+              this.route.navigateByUrl("/choixdomaine")
+            }
+          })
+      
         }
+
+          
+        
+          
       },
       error: err => {
         this.errorMessage = err.error.message;

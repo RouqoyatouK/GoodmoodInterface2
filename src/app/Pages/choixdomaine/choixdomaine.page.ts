@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ChoixdomaineService } from 'src/app/Services/choixdomaine.service';
 import { DomaineService } from 'src/app/Services/domaine.service';
 import { StorageService } from 'src/app/Services/storage.service';
+import Swal from 'sweetalert2';
+
+
 
 @Component({
   selector: 'app-choixdomaine',
@@ -14,11 +18,14 @@ export class ChoixdomainePage implements OnInit {
   Affichertoutlesdomaines: any
   message: String= 'kkkkkkkkkkkkkkkkkkkkkkkk';
 
+
+
   //Domaine users
   users: any;
   iddomaine: ''
   listDomaines: number[] = [];
-  constructor(private domaineService: DomaineService, private choixdomaineService: ChoixdomaineService, private storage: StorageService) { }
+  constructor(private router: Router,
+    private domaineService: DomaineService, private choixdomaineService: ChoixdomaineService, private storage: StorageService, private route: Router) { }
 
   ngOnInit() {
     this.users= this.storage.getUser();
@@ -46,6 +53,19 @@ export class ChoixdomainePage implements OnInit {
       if(element.checked){
         this.listDomaines.push(domaine.iddomaine)
       }
+      if(this.listDomaines.length == 0){
+      Swal.fire({
+          title:'Vous devez choisir au moins une thématique',
+          heightAuto:false
+          
+
+      })
+
+
+      }else{
+        this.route.navigateByUrl("/tab/home")
+
+      }
       // else(this.listDomaines=[]) 
       //   this.message
       
@@ -58,5 +78,8 @@ export class ChoixdomainePage implements OnInit {
       })
     });
   }
-
+  goToHomePage() {
+    this.router.navigate(['/tab/home']);
+  }
+  
 }
