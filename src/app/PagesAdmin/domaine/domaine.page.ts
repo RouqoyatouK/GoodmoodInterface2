@@ -40,13 +40,13 @@ Recupererlimage(event: any){
   this.imagedomaine=event.target["files"][0];
 }
 
- AjouterLeNomRegion(){
+ AjouterDesDomaines(){
 //   this.nomRegionSercice.AjouterNomRegion(this.nom, this.superfie, this.coderegion, this.activite, this.pays, this.imageregion).subscribe(data =>{
 // //ajout pas necessaire
 //   })
 
 this.domaineService.AjouterDomaine(this.nomdomaine, this.users.id, this.imagedomaine).subscribe(data=>{
-  this.message= data.message;
+  this.message= data.data;
 
 })
 }

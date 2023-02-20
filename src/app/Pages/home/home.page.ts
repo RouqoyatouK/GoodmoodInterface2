@@ -6,6 +6,9 @@ import { OverlayEventDetail } from '@ionic/core/components';
 import { UserService } from 'src/app/Services/user.service';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Router } from '@angular/router';
+import { DomaineService } from 'src/app/Services/domaine.service';
+import { ChoixdomaineService } from 'src/app/Services/choixdomaine.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +16,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+  //Afficher tout les domaines
+  Affichertoutlesdomaines: any;
+
+  //Domaine ajouter users
+  iddomaine: ''
+  listDomaines: number[] = [];
 
   // features: any[] = [
   //   {id: 1, name: 'Top Up', src: 'assets/icons/top-up.png', background: 'rgba(27,150,181, 0.1)', page: ''},
@@ -26,7 +36,8 @@ export class HomePage implements OnInit {
   // ];
 
 
-  constructor(private citationService: CitationService, private token: StorageService, private userService: UserService, private auth: AuthService, private router: Router) { }
+  constructor(private citationService: CitationService, private token: StorageService, private userService: UserService, private auth: AuthService, private router: Router, private domaineService: DomaineService,
+    private choixdomaineService: ChoixdomaineService, ) { }
   @ViewChild(IonModal) modal: IonModal;
   message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
   name: string;
@@ -76,13 +87,22 @@ export class HomePage implements OnInit {
   idusers: any;
   toutlescitation: any;
 
+  username: any
+
   ngOnInit() {
     this.idusers= this.token.getUser();
+    this.username= this.token.getUser().id.username;
+
     this.citationService.AfficherLesCitationDunUser(this.idusers.id).subscribe(data=>{
       this.toutlescitation= data
       console.log(data)
-    })
+})
 
+      //Afficher tout les domaines
+      this.domaineService.AfficherToutlesdomaines().subscribe(data=>{
+        this.Affichertoutlesdomaines=data;
+        //this.iddomaine=this.Affichertoutlesdomaines.iddomaine
+      })
 
     //afficher les domaine d'un user
     this.userService.AfficherUsersparid(this.idusers.id).subscribe(data=>{
@@ -91,7 +111,66 @@ export class HomePage implements OnInit {
       //console.log(this.domaine)
     })
   }
+
+  //Ajouter favoris
+  idcitation: any;
+  bgColor: any;
+  AjouterFAvorisPourUsers(idcitation: any){
+    this.citationService.AjouterFavoris(idcitation, this.idusers.id).subscribe(data=>{
+
+
+    })
+  }
       
+
+  //Ajouter d'autre domaine a celui deja selectionner lors de l'inscription
+
+  trouverIdDomaine(idom:number){
+    console.log("hhhhhhhhhhhhhhhhhhhhh"+idom)
+    this.listDomaines.push(idom);
+  }
+
+
+  AjouterDomainePourUses(){
+
+    this.listDomaines=[]
+    this.Affichertoutlesdomaines.forEach((domaine: { iddomaine: number; }) => {
+      console.log("#domaine"+domaine.iddomaine)
+      var element=<HTMLIonCheckboxElement>document.querySelector("#domaine"+domaine.iddomaine)
+
+      if(element.checked){
+        this.listDomaines.push(domaine.iddomaine)
+      }
+      if(this.listDomaines.length != 0){
+      Swal.fire({
+          title:'Thématique ajouter avec succes',
+          heightAuto:false
+          
+
+      })
+
+
+      }else{
+        Swal.fire({
+          title:'Aucune thématiques ajouter',
+          heightAuto:false
+          
+
+      })
+
+      }
+      // else(this.listDomaines=[]) 
+      //   this.message
+      
+    });
+    console.log(this.listDomaines)
+
+    this.listDomaines.forEach(element => {
+      this.choixdomaineService.AjouterDomainPourUse(element, this.idusers.id).subscribe(data=>{
+        console.log(data)
+      })
+    });
+  }
 
   
 

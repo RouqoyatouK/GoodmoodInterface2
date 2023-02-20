@@ -31,4 +31,9 @@ export class PlanningService {
   AfficherPlaningDunUser(idusers:any):Observable<any>{
     return this.http.get(`${this.env.api}/planning/read/${idusers}`)
   }
+
+  //Supprimer planning d'un users
+  Supprimerplanning(idplaning: any): Observable<any>{
+    return this.http.delete(`${this.env.api}/planning/delete/${idplaning}`)
+  }
 }

@@ -7,50 +7,47 @@
   integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
 <ion-content>
-  <ion-row>
-    <ion-col size="12">
-      <img src="../../../assets/inscription.gif" alt="">
-    </ion-col>
-  </ion-row>
 
-  <ion-row>
-    <ion-col>
+
+  <div class="wrapper">
+      <div class="logo">
+          <img src="../../../assets/121421-login.gif" alt="">
+      </div>
+      <div class="text-center mt-4 name">
+          GOODMOOD
+      </div>
       <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-
-        <!-- username input -->
-        <div class="form-outline mb-4">
-          <label class="form-label" for="form2Example1">Nom user</label>
-          <input type="text" id="form2Example1 inputshadox" class="form-control" name="username"
-            [(ngModel)]="form.username" required minlength="3" maxlength="20" #username="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && username.errors }" />
-        </div>
-
-
-        <div  style="color: red;" *ngIf="username.errors && f.submitted">
-          <div *ngIf="username.errors['required']">
-            champs obligatoire
+          <div class="form-field d-flex align-items-center">
+              <span class="far fa-user"></span>
+              <input type="text"id="form2Example2"   placeholder="Nom d'utilisateur" name="username"
+              [(ngModel)]="form.username" required minlength="3" maxlength="20" #username="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && username.errors }" >
           </div>
-          <div *ngIf="username.errors['minlength']">
-            Username doit etre plus que 3 characteres
+          <!--kkkkkkkkkkkkkkkkkkkkkkkkkkkkk-->
+
+          <div  style="color: red;" *ngIf="username.errors && f.submitted">
+            <div *ngIf="username.errors['required']">
+              champs obligatoire
+            </div>
+            <div *ngIf="username.errors['minlength']">
+              Username doit etre plus que 3 characteres
+            </div>
+            <div *ngIf="username.errors['maxlength']">
+              Username doit etre moins de 20 characteres
+            </div>
+            <!-- <div *ngIf="username !== null">
+              Le nom d'utilisateur existe déjà. Veuillez en choisir un autre.
+            </div> -->
+
           </div>
-          <div *ngIf="username.errors['maxlength']">
-            Username doit etre moins de 20 characteres
-          </div>
-          <!-- <div *ngIf="username !== null">
-            Le nom d'utilisateur existe déjà. Veuillez en choisir un autre.
-          </div> -->
 
+
+          <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input type="email" id="form2Example2"   placeholder=" Email" name="email" [(ngModel)]="form.email" required
+            email #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.errors }">
         </div>
-
-
-
-        <!-- Email input -->
-        <div class="form-outline mb-4">
-          <label class="form-label" for="form2Example1">Email address</label>
-          <input type="email" id="form2Example1" class="form-control" name="email" [(ngModel)]="form.email" required
-            email #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.errors }" />
-        </div>
-
+        <!--kkkkkkkkkkkkkkkkkkkkkkkkkkkkk-->
         <div style="color: red;" *ngIf="email.errors && f.submitted">
           <div *ngIf="email.errors['required']">champ email obligatoire</div>
           <div *ngIf="email.errors['email']">
@@ -59,63 +56,39 @@
         </div>
 
 
-        <!-- Password input -->
-        <div class="form-outline mb-4">
-          <label class="form-label" for="form2Example2">Password</label>
-          <input type="password" id="form2Example2" class="form-control" name="password" [(ngModel)]="form.password"
-            required minlength="8" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
-        </div><br>
 
-
-        <div  style="color: red;" *ngIf="password.errors && f.submitted">
-          <div *ngIf="password.errors['required']">champs password obligatoire</div>
-          <div *ngIf="password.errors['minlength']">
-            Le password ne doit pas être inferieur a 8
+          <div class="form-field d-flex align-items-center">
+              <span class="fas fa-key"></span>
+              <input type="password" id="form2Example2" placeholder="Mot de passe" name="password" [(ngModel)]="form.password"
+              required minlength="8" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
           </div>
-        </div>
 
-        <!-- 2 column grid layout for inline styling
-        <div class="row mb-4">
-          <div class="col d-flex justify-content-center">
-             Checkbox
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-              <label class="form-check-label" for="form2Example31"> Remember me </label>
+          <!--kkkkkkkkkkkkkkkkkkkkkkkkkkkkk-->
+
+        
+          <div  style="color: red;" *ngIf="password.errors && f.submitted">
+            <div *ngIf="password.errors['required']">champs password obligatoire</div>
+            <div *ngIf="password.errors['minlength']">
+              Le password ne doit pas être inferieur a 8
             </div>
           </div>
 
-          <div class="col">
-             Simple link
-            <a href="#!">Forgot password?</a>
+
+          <button class="btn mt-3">Inscription</button>
+
+          <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+            Inscription faible!<br />{{ errorMessage }}
           </div>
-        </div> -->
-
-        <!-- Submit button -->
-        <div class="text-center">
-          <p>Vous êtes dejà inscris? <a href="/login">Connexion</a></p>
-
-
-          <!-- <button type="button" class="btn btn-link btn-floating mx-1">
-            <i class="fab fa-twitter"></i>
-          </button>
-
-          <button type="button" class="btn btn-link btn-floating mx-1">
-            <i class="fab fa-github"></i>
-          </button> -->
-        </div>
-        <button type="sub" class="btn btn-primary btn-block mb-4" style="text-align: center;">Inscription</button>
-
-        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-          Inscription faible!<br />{{ errorMessage }}
-        </div>
-
-        <!-- Register buttons -->
-
+          
       </form>
+      <div class="text-center fs-6">
+          <a href="/tab/login">Connexion</a>
+      </div>
+
       <div class="alert alert-success" *ngIf="isSuccessful">
         Your registration is successful!
       </div>
-    </ion-col>
-  </ion-row>
+  </div>
+  
 
 </ion-content>

@@ -1,8 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+
     <ion-item lines="none">
       <ion-label style="font-weight: 800;font-size: 3em;">
-        Today
+        Aujourdh'ui
         <p style="font-weight: 400;color: #433465 ;">{{today | date:'fullDate'}}</p>
       </ion-label>
     </ion-item>
@@ -13,7 +14,7 @@
 
   <ion-card  class="ion-margin" *ngFor="let list of toutlestachedunplanning">
     <ion-card-header>
-
+     
       <ion-card-subtitle style="text-transform: uppercase;" [style.color]="list.priority.nompriority === 'urgent' ? 'red' : (list.priority.nompriority === 'pas urgent' ? 'green' : 'orange')" >
        {{list.typetache.nomtypetache}}
       </ion-card-subtitle>
@@ -28,8 +29,8 @@
         </ion-item> -->
         <ion-icon *ngIf="list.priority.nompriority === 'urgent'"  color="danger" size="small" name="ellipse"></ion-icon>
         <ion-icon *ngIf="list.priority.nompriority === 'pas urgent'" color="success" size="small" name="ellipse"></ion-icon>
-        <ion-icon *ngIf="list.priority.nompriority === 'moins urgent'"  color="warning" size="small" name="ellipse"></ion-icon>
-        <ion-label  style="text-transform: capitalize;"> {{list.designation}}</ion-label>
+        <ion-icon *ngIf="list.priority.nompriority === ' moins urgent'"  color="warning" size="small" name="ellipse"></ion-icon>
+        <ion-label  style="text-transform: capitalize; margin-right: 10px;" [ngStyle]="{'text-decoration-line': list.completed === true ? 'line-through' : 'none'}"> {{list.designation}}</ion-label>
       </ion-item>
 
     </ion-card-header>
@@ -43,7 +44,7 @@
         <p>Modifier</p></div>
       <div class="col" size="3"> <a id="{{list.idtache}}" (click)="CompleterTache(list.idtache)">  <ion-icon name="create-outline" slot="start" ></ion-icon></a>
         <p>Complet</p></div>
-      <div class="col" size="3"> <ion-icon name="create-outline"></ion-icon>
+      <div class="col" size="3"> <ion-icon name="create-outline" (click)="openModal(list.planning.idplanning, list.idtache)"></ion-icon>
         <p>Supprimer</p></div>
 
     </ion-row>
@@ -78,7 +79,9 @@
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
-
+        <div class="alert alert-primary"  role="alert">
+          {{messageetache}}
+        </div>
         <ion-card class="ion-align-self-center" >
           <ion-item>
             <ion-textarea placeholder="Write task here" name="designation" [(ngModel)]="designation"></ion-textarea>
@@ -101,15 +104,49 @@
           <ion-select name="nomtypetache" [(ngModel)]="nomtypetache">
             <ion-select-option value="{{liste.idtypttache}}" *ngFor="let liste of recuperertypetache">{{liste.nomtypetache}}</ion-select-option>
           </ion-select>
-      
+        
           <ion-chip color="primary" outline="true">
             <ion-label color="secondary">Nouveau</ion-label>
-            <ion-button fill="clear">
+            <ion-button fill="clear" id="top-center">
               <ion-icon slot="icon-only" name="add-outline"></ion-icon>
             </ion-button>
           </ion-chip>
-        </ion-item>
+        </ion-item> 
+
       
+          <ion-slides [options]="slideOpts " >
+                
+
+            <ion-slide *ngFor="let liste of recuperertypetache">
+              <ion-chip>
+                <!-- <ion-avatar>
+                  <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+                </ion-avatar> -->
+                <ion-label>{{liste.nomtypetache}}</ion-label>
+                <ion-icon name="close-circle"></ion-icon>
+              </ion-chip> 
+            </ion-slide>
+            
+          </ion-slides>
+      
+
+
+          <!-- Popup pour ajouter des type de tache -->
+          
+          <ion-popover trigger="top-center" side="top" alignment="center">
+            <ng-template>
+              <ion-content class="ion-padding">
+                <!-- Alerte pour la creation d'un type de tache-->
+                <div class="alert alert-primary"  role="alert">
+                  {{messagetypetache}}
+                </div>
+                    <ion-label >Type Tâche </ion-label> <br>
+                    <ion-input style="box-shadow: 2px 3px 4px grey; background: white;"  type="text" name="nomtypetachee" [(ngModel)]="nomtypetachee"> </ion-input>
+                  <ion-button class="ion-margin" expand="block" (click)="Ajoutettypetache()" >Ajouter</ion-button>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+
         </ion-card>
         <ion-button class="ion-margin" expand="block" (click)="AjouterUnNewTache()" >Ajouter</ion-button>
         

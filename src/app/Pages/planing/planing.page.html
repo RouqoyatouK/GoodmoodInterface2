@@ -1,28 +1,22 @@
-<ion-content  >
-  <img src="../../../assets/Group 31 (2).png" alt=""  >
-  <div class="login-section ion-padding" >
-    <!-- <div class="headng ion-padding">
-    <h1>Salut Roocky</h1>
-    <p>Planifie ta journée</p>
+<ion-content>
+  <div style="width: 100% !important;height: 280px;background-color: aqua; " class="li">
 
-    <div class="card cardi" >
-      <div class="row">
+    <!--Imageeeeeeeee-->
+    <div style="width: 100% !important;height: 280px; background-image: url('../../../assets/Group 31 (2).png'); " class="li">
+     
+    </div>
 
-        <div class="col-6  py-3">
-          <img src="../../../assets/bg1.jpg" alt=""width="80px" height="80px" style=" border-radius: 50%;" >
-        </div>
-        <div class="col-6 py-3">
-          <div class="row" style="margin-top: 10px;">
-           <a href="tab/todolist" id="nomday"> <div class="col-11  ">Journée1</div></a>
-            <div class="col-11  ">Le 24, 04, 12</div>
-          </div>
-        </div>
-      </div>
-    </div> -->
+
+    <!--Contenu Cardddd-->
+    <div style="width: 100%;height: 80px;background-color: rgb(255, 255, 255); border-top-left-radius: 40px;border-top-right-radius: 40px;margin-top: -70px;">
+     
+
+     
+      <div style="position: relative;top: 20px;" >
 
     <ion-row>
       <ion-col >
-        <h4 style="text-align: center; margin-top: -10px;">Salut <span style="color: blue;">  @Roocky</span> planifie <span>ta journée </span> </h4>
+        <h4 style="text-align: center; margin-top: -10px;">Salut <span style="color: blue;">  @{{username}}</span> planifie <span>ta journée </span> </h4>
       </ion-col>
     </ion-row>
 
@@ -31,14 +25,18 @@
 <ion-row >
   
   <ion-col size="6" *ngFor="let list of  toutlesplanningdunuser">
-    <a [routerLink]="[url, list.idplanning]" style="text-decoration: none;"> 
+   
     <div class="cards-list" >
 
       <div class="card 1">
         <div class="card_image"> <img src="https://i.redd.it/b3esnz5ra34y.jpg" /> </div>
         <div class="card_title title-white">
           
-            <p id="tache" > <ion-icon name="create-outline" style="margin-right: 20px;"></ion-icon> <ion-icon name="create-outline"></ion-icon></p> 
+            <p id="tache" > 
+              <ion-icon name="create-outline" style="margin-right: 20px;" [routerLink]="[url, list.idplanning]"></ion-icon> 
+              <ion-icon name="create-outline"style="margin-right: 20px;" (click)="openModal(list.idplanning)"> </ion-icon> 
+              <ion-icon name="create-outline"></ion-icon>
+            </p> 
         </div>
 
         <div class="card_title title-white">
@@ -49,68 +47,60 @@
     
 
       </div>
-    </a>
+ 
 </ion-col>
 </ion-row>
 </div>
 
-<!-- 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="openModal()">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab> -->
+      </div>
+    </div>
 
-
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button id="open-modal" expand="block">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button id="open-modal" expand="block">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
-
-
-<!--Modallllllll-->
-  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-button (click)="cancel()"><span aria-hidden="true" style="font-size: 30px;">&times;</span></ion-button>
-          </ion-buttons>
-          <ion-title>Ajouter planning</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-
-        <div class="alert alert-primary" role="alert">
-          {{messagee}}
-        </div>
-        <ion-card class="ion-align-self-center" formGroup="myform">
+  
+  
+  <!--Modallllllll-->
+    <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="cancel()"><span aria-hidden="true" style="font-size: 30px;">&times;</span></ion-button>
+            </ion-buttons>
+            <ion-title>Ajouter planning</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+  
+          <div class="alert alert-primary"  role="alert">
+            {{messagee}}
+          </div>
+          <ion-card class="ion-align-self-center" formGroup="myform">
+            <ion-item>
+              <ion-textarea   placeholder="Write task here" name="nomplanning" [(ngModel)]="nomplanning"></ion-textarea>
+           </ion-item>
+  
+           <ion-item>
+            <ion-label >Date debut </ion-label>
+            <ion-input type="date" name="datedebut" [(ngModel)]="datedebut"> </ion-input>
+          </ion-item>
+  
           <ion-item>
-            <ion-textarea   placeholder="Write task here" name="nomplanning" [(ngModel)]="nomplanning"></ion-textarea>
-         </ion-item>
-
-         <ion-item>
-          <ion-label >Date debut </ion-label>
-          <ion-input type="date" name="datedebut" [(ngModel)]="datedebut"> </ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label >Date fin</ion-label>
-          <ion-input type="date" name="datefin" [(ngModel)]="datefin"> </ion-input>
-        </ion-item> 
+            <ion-label >Date fin</ion-label>
+            <ion-input type="date" name="datefin" [(ngModel)]="datefin"> </ion-input>
+          </ion-item> 
+          
+           <ion-button class="ion-margin" expand="block" (click)="AjouterUnNewPlaning()" >Ajouter</ion-button>
+          </ion-card>
         
-         <ion-button class="ion-margin" expand="block" (click)="AjouterUnNewPlaning()" >Ajouter</ion-button>
-        </ion-card>
-      
-      </ion-content>
-    </ng-template>
-  </ion-modal>
-
-
-</ion-content >
-
-
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+    
+  
+</ion-content>
 

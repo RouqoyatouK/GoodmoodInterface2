@@ -9,6 +9,7 @@ import { OverlayEventDetail } from '@ionic/core/components';
 import { PriorityService } from 'src/app/Services/priority.service';
 import { TypetacheService } from 'src/app/Services/typetache.service';
 import { StorageService } from 'src/app/Services/storage.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -19,10 +20,12 @@ import { StorageService } from 'src/app/Services/storage.service';
 export class TodolistPage  {
 
 
+  username: any;
+
   //yyyyyyyyyyyyyyyyyyyy Modal debut
   @ViewChild(IonModal) modal: IonModal;
 
-  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
+ // message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
   name: string;
 
   cancel() {
@@ -36,7 +39,7 @@ export class TodolistPage  {
   onWillDismiss(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
     if (ev.detail.role === 'confirm') {
-      this.message = `Hello, ${ev.detail.data}!`;
+      //this.message = `Hello, ${ev.detail.data}!`;
     }
   }
 
@@ -49,6 +52,7 @@ date: any;
 completed: any;
 nomtypetache:any;
 nompriority: any;
+
 //idplaning: any;
 //idd:any;
 
@@ -56,15 +60,19 @@ nompriority: any;
 
 
 //Ajouter tache
+messageetache: any
 AjouterUnNewTache(){
-  this.tacheService.AjouterUneTacheAUnPanning(this.designation, this.date, this.completed, this.nomtypetache, this.nompriority, this.id).subscribe(data=>{
+  this.tacheService.AjouterUneTacheAUnPanning(this.designation, this.date, this.completed, this.id, this.nomtypetache, this.nompriority).subscribe(data=>{
 console.log(data)
+this.messageetache= data.message
+
   })
 }
-//Completer tache
-idtache: any;
 
-      
+
+
+//Completer tache
+idtache: any;    
 CompleterTache(idtache:any){
 
   this.tacheService.TacheComplet(idtache).subscribe(data=>{
@@ -120,16 +128,6 @@ tptache= ''
 
     })
 
-
-
-
-
-
-
-
-
-
-
     //   const idplanning=this.route.snapshot.params["id"];
   // this.id=idplanning;
   // console.
@@ -144,8 +142,76 @@ tptache= ''
         this.recuperertypetache = data;
       })
      }
-//
+//Ajouter typetache user
+nomtypetachee: any;
+messagetypetache: any
 
+Ajoutettypetache(){
+  this.idusers = this.tokenStorage.getUser().id;
+  console.log(this.idusers)
+  this.typetacheService.AjouterTypeTAcheUnUser(this.idusers,this.nomtypetachee).subscribe(data=>{
+this.messagetypetache= data.message;
+//console.log(this.messagee)
+
+  })
+}
+
+
+public slideOpts = {
+  // slidesPerView: 1.5,
+  // centeredSlides: true,
+  // loop: true,
+  // spaceBetween: 10,
+  // autoplay: true,
+
+  slidesPerView: 1.5,
+  spaceBetween: 2,
+  centeredSlides: true,
+  autoplay: true,
+  //loop: true,
+  coverflowEffect: {
+  rotate: 0,
+  stretch: 0,
+  depth: 100,
+  modifier: 1,
+  slideShadows: true,
+},
+
+}
+
+ //Supprimer planning
+ idplanningg: any
+ idtachee: any
+
+ openModal( idplaning : number, idtache: number) {
+   Swal.fire({
+     //title: username,
+     text: "Commfirmer la suppression ?",
+     heightAuto:false,
+     icon: 'warning',
+     showCancelButton: true,
+     confirmButtonColor: '#3085d6',
+     cancelButtonColor: '#d33',
+     cancelButtonText : "NON",
+     confirmButtonText: 'OUI'
+   }).then((result) => {
+     if (result.isConfirmed) {
+       //suppp
+       this.tacheService.Supprimertache(idplaning, idtache).subscribe(() => {});
+ 
+       Swal.fire({
+         title: 'Supprimer  avec succès',
+         icon: 'success',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         confirmButtonText: 'OK'
+       });
+       window.location.reload()
+
+
+     }
+   });
+ }
 // Une autre manier d'utiliser modal ionicmais cette fois on appelle le popup dans une autre pas
   //  async openModal(){
   // const modal = await this.modalCtlr.create({

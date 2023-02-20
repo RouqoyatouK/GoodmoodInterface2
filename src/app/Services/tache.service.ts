@@ -20,7 +20,7 @@ export class TacheService {
 
   //Ajouter une nouvelle tache
 
-  AjouterUneTacheAUnPanning(designation: any, date: Date, completed: boolean, nomtypetache: any, nompriority: any, id: any){
+  AjouterUneTacheAUnPanning(designation: any, date: Date, completed: boolean,  id: any, nomtypetache: any, nompriority: any): Observable<any>{
 
     const addtache = {
       "designation": designation,
@@ -35,5 +35,11 @@ export class TacheService {
      const completTache= { }
       return this.http.put(`${this.env.api}/tache/complet/${idtache}`, completTache)
     }
+
+    //Supprimer une tache 
+    Supprimertache(idplanning: any , idtache: any): Observable<any>{
+      return this.http.delete(`${this.env.api}/delete/${idplanning}/${idtache}`)
+    }
+
 
 }

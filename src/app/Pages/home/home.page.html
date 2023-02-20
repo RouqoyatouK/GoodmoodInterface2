@@ -1,5 +1,6 @@
 
-<ion-header class="ion-no-border"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<ion-header class="ion-no-border">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <ion-item lines="none">
    <!-- <ion-button fill="clear" slot="start" color="light">
      <ion-icon slot="icon-only" name="menu"></ion-icon>
@@ -27,7 +28,7 @@
           <p>
             <ion-chip color="light">
               <ion-label class="ion-text-wrap">
-                roocky
+                {{username}}
               </ion-label>
             </ion-chip>
           </p>
@@ -67,12 +68,12 @@
             <div style="overflow: auto; height: 80px; width: 200px; text-align: justify;">
           
 {{item.contenu}}              <div>
-                <h5 slot="end"> 
-                  <!-- <button id="heart-button">❤️</button> -->
-                  <button class="heart-button">
-                    <i class="fa-light fa-heart"></i>                  </button>
-                  
-                </h5>
+                <div> 
+                 <!-- <button id="heart-button">❤️</button> -->
+                 <button id="{{item.idcitation}}" (click)="AjouterFAvorisPourUsers(item.idcitation)" [ngStyle]="{'background-color': 'red'}"> 
+                  <ion-icon name="heart-outline"></ion-icon>    
+                </button>              
+                </div>
 
               </div>
           </div>
@@ -122,74 +123,86 @@
         </ion-toolbar>
       </ion-header>
       
-
       <ion-content>
-        <img src="../../../assets/Group 31 (2).png" alt=""  >
-        <div class="login-section ion-padding" >
-          <div class="container">
-            <div class="row">
+          <div style="width: 100% !important;height: 280px;background-color: aqua; " class="li">
+
+            <!--Imageeeeeeeee-->
+            <div style="width: 100% !important;height: 280px; background-image: url('../../../assets/Group 31 (2).png'); " class="li">
             
-              <!--Tout les thematique chooisis pasr lutilisateur-->
-              <div class="col-12 text-center mt-4 mb-4">
+            </div>
+        
+        
+            <!--Contenu Cardddd-->
+            <div style="width: 100%;height: 80px;background-color: rgb(255, 255, 255); border-top-right-radius: 50px;margin-top: -70px;">
+            
+        
+            
+              <div style="position: relative;top: 20px;" >
+                <!--Tout les thematique chooisis pasr lutilisateur-->
+                  <div class="col-12 text-center mt-4 mb-4">
 
-                <ion-slides [options]="slideOpts " >
-                
+                    <ion-slides [options]="slideOpts " >
+                      <ion-slide *ngFor="let item of domaine">
+                        <ion-chip  outline="true">
+                          <ion-label color="black">{{item.nomdomaine}}</ion-label>
+                          <ion-button fill="clear">
+                            <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+                          </ion-button>
+                        </ion-chip>   
+                      </ion-slide>
+                    </ion-slides>
+                    
+                  </div>
 
-                  <ion-slide *ngFor="let item of domaine">
-                    <ion-chip  outline="true">
-                      <ion-label color="black">{{item.nomdomaine}}</ion-label>
-                      <ion-button fill="clear">
-                        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
-                      </ion-button>
-                    </ion-chip>   
-                  </ion-slide>
-                  
-                </ion-slides>
-                          
+
+
+                  <div class="row mb-5">
+                    <div class="col-6 text-center ">
+                      <div class="input-group col-6">
+                        <input class="form-control border-end-0 border rounded-pill" type="text" value="search" id="example-search-input">
+                        <span class="input-group-append">
+                            <button class="btn btn-outline-secondary bg-white border-start-0 border rounded-pill " type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                 </div>     
+                  </div>
+              
+                    <div class="col-3 text-center ">
+                      <ion-button shape="round"  (click)="AjouterDomainePourUses()">Suivant </ion-button> 
+                       
+                        </div>
+              
+                       
+                  </div>
+    
+    
+                  <!--liste thematique-->
+                 <div class="col-12 text-center mt-4 mb-4">
+                    <ion-card class="card3" *ngFor="let item of Affichertoutlesdomaines ;">
+                      <ion-card class="card4" >
+                        <img style="display: flex; position: relative; width: 100%;  " src="{{item.imagedomaine}}" alt=""> 
+              
+                      </ion-card>
+                      
+                      
+                      <!-- <ion-icon class="point" name="ellipsis-vertical-circle-outline"></ion-icon> -->
+                      <!-- <a href="" class="annonce">Créer votre annonce</a> -->
+                      <h2 style="font-weight: bold;">{{item.nomdomaine}}<input class="form-check-input" type="checkbox" value="" id="domaine{{item.iddomaine}}"></h2>
+                    </ion-card> 
+    
+                     
+                   
+                               
+                 </div>
+    
+
+
               </div>
-
-
-
-              <!--liste thematique-->
-             <div class="col-12 text-center mt-4 mb-4">
-                <ion-card class="card3" routerLink="/ajout-annonce">
-                  <ion-card class="card4" routerLink="/ajout-annonce">
-                    <img style="display: flex; position: relative; width: 100%;  " src="../../../assets/1.jpg" alt=""> 
-            
-                  </ion-card>
-                  
-                  
-                  <!-- <ion-icon class="point" name="ellipsis-vertical-circle-outline"></ion-icon> -->
-                  <!-- <a href="" class="annonce">Créer votre annonce</a> -->
-                  <h2  class="annonce">Mathematiques <input class="form-check-input text-center" style="" type="checkbox" value=""  ></h2>
-                </ion-card> 
-                <ion-card class="card3" routerLink="/ajout-annonce">
-                  <ion-card class="card4" routerLink="/ajout-annonce">
-                    <img style="display: flex; position: relative; width: 100%;  " src="../../../assets/1.jpg" alt=""> 
-            
-                  </ion-card>
-                  
-                  
-                  <!-- <ion-icon class="point" name="ellipsis-vertical-circle-outline"></ion-icon> -->
-                  <!-- <a href="" class="annonce">Créer votre annonce</a> -->
-                  <h2  class="annonce">Mathematiques <input class="form-check-input text-center" style="" type="checkbox" value=""  ></h2>
-                </ion-card> 
-                <ion-card class="card3" routerLink="/ajout-annonce">
-                  <ion-card class="card4" routerLink="/ajout-annonce">
-                    <img style="display: flex; position: relative; width: 100%;  " src="../../../assets/1.jpg" alt=""> 
-            
-                  </ion-card>
-                  
-                  
-                  <!-- <ion-icon class="point" name="ellipsis-vertical-circle-outline"></ion-icon> -->
-                  <!-- <a href="" class="annonce">Créer votre annonce</a> -->
-                  <h2  class="annonce">Mathematiques <input class="form-check-input text-center" style="" type="checkbox" value=""  ></h2>
-                </ion-card>            
-             </div>
             </div>
           </div>
-      </div>
       </ion-content>
+
     </ng-template>
   </ion-modal>
 

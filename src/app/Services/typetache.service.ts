@@ -16,4 +16,15 @@ export class TypetacheService {
   AfficherTypeTAcheUnUser(idusers: any): Observable<any>{
    return this.http.get(`${this.env.api}/typetache/read/${idusers}`);
   }
+
+  //Ajouter type tache pour un user
+  AjouterTypeTAcheUnUser(idusers: any, nomtypetache: any): Observable<any>{
+    const typetache= {
+
+      "nomtypetache": nomtypetache,
+    }
+
+    return this.http.post(`${this.env.api}/typetache/add/${idusers}`, typetache)
+
+  }
 }
