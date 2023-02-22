@@ -73,6 +73,7 @@ this.messagee = data.message;
 //Afficher planning d'un user
 toutlesplanningdunuser: any;
 user: any;
+longueur: any
 
 url: string="/tab/todolist";
   ngOnInit() {
@@ -82,14 +83,19 @@ url: string="/tab/todolist";
       this.toutlesplanningdunuser=data;
       console.log(this.toutlesplanningdunuser)
 
+      this.longueur= this.toutlesplanningdunuser.length
+    
+
+
+ 
+    })
 
       this.userService.AfficherUsersparid(this.user.id).subscribe(data=>{
         this.toutcekiconcerneuser= data;
         this.username=this.toutcekiconcerneuser.username
         console.log(this.username)
       })
-   
-    })
+  
   }
 
   //Supprimer planning

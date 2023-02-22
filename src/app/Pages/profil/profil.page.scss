@@ -1,0 +1,84 @@
+.container {
+    padding: 0 16px;
+    padding-bottom: 0px;
+    background: #f9f9f9;
+    margin-top: 20px;
+  }
+  section.profile {
+    margin-bottom: 32px;
+    .image {
+      width: 140px;
+      height: 140px;
+      border-radius: 100%;
+      overflow: hidden;
+      margin: auto;
+      margin-bottom: 10px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .names {
+      text-align: center;
+      .name {
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+    }
+  }
+  
+  section.settings {
+    .setting {
+      margin-bottom: 24px;
+      .s-title {
+        margin-bottom: 16px;
+        h4 {
+          margin: 0;
+          font-weight: 600;
+        }
+      }
+      .s-content {
+        padding: 8px;
+        border-radius: 16px;
+        background: #fff;
+        .set {
+          padding: 8px;
+          display: flex;
+          flex-direction: column;
+          row-gap: 4px;
+          border-bottom: 1px solid #d7d8da;
+          .label {
+            font-weight: 700;
+          }
+        }
+        .set:last-child {
+          border: none;
+        }
+      }
+    }
+    .setting.app {
+      .s-content .set {
+        padding: 16px 8px;
+      }
+    }
+  }
+
+
+
+
+  .bouton{
+    background-color: rgb(30, 30, 138);
+   
+    border: none;
+    font-weight: bold;
+    margin-bottom: 10%;
+    border-radius: 5px;
+    width: 100%;
+    color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+    letter-spacing: 0.03em;
+    font-family: myfon2;
+  }        
+  
