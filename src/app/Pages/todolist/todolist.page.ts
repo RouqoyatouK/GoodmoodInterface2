@@ -72,7 +72,7 @@ this.messageetache= data.message
 
 
 //Completer tache
-idtache: any;    
+idtache: any;
 CompleterTache(idtache:any){
 
   this.tacheService.TacheComplet(idtache).subscribe(data=>{
@@ -95,7 +95,7 @@ CompleterTache(idtache:any){
   today: number = Date.now();
   url: string="/add-task";
 
-  
+
   constructor(public modalCtlr: ModalController , private tacheService: TacheService, private route: ActivatedRoute, private priorityService: PriorityService,
     private typetacheService: TypetacheService, private tokenStorage: StorageService ) {
     // this.getAllTask()
@@ -106,6 +106,7 @@ idplanning: any
 toutlestachedunplanning: any;
 id:any
 tptache= ''
+longeur: any;
    ngOnInit(){
     const idplanning=this.route.snapshot.params["id"];
     this.id=idplanning
@@ -115,11 +116,11 @@ tptache= ''
 
     this.tacheService.AfficherTacheDunPlanning(idplanning).subscribe(data=>{
       this.toutlestachedunplanning=data
-
+      this.longeur= this.toutlestachedunplanning.length
       console.log("verification: " + JSON.stringify(this.toutlestachedunplanning))
 
-      
-      
+
+
     console.log(this.toutlestachedunplanning)
      // this.tptache=this.toutlestachedunplanning.nomtypetache
 
@@ -198,7 +199,7 @@ public slideOpts = {
      if (result.isConfirmed) {
        //suppp
        this.tacheService.Supprimertache(idplaning, idtache).subscribe(() => {});
- 
+
        Swal.fire({
          title: 'Supprimer  avec succès',
          icon: 'success',

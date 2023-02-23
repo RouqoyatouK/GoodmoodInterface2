@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { DomaineService } from 'src/app/Services/domaine.service';
 import { ChoixdomaineService } from 'src/app/Services/choixdomaine.service';
 import Swal from 'sweetalert2';
+import { FavorisService } from 'src/app/Services/favoris.service';
 
 @Component({
   selector: 'app-home',
@@ -36,8 +37,9 @@ export class HomePage implements OnInit {
   // ];
 
 
-  constructor(private citationService: CitationService, private token: StorageService, private userService: UserService, private auth: AuthService, private router: Router, private domaineService: DomaineService,
-    private choixdomaineService: ChoixdomaineService, ) { }
+  constructor(private citationService: CitationService, private token: StorageService, private userService: UserService, private auth: AuthService, private router: Router,
+    private domaineService: DomaineService,
+    private choixdomaineService: ChoixdomaineService, private favoriService: FavorisService) { }
   @ViewChild(IonModal) modal: IonModal;
   message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
   name: string;
@@ -79,7 +81,7 @@ export class HomePage implements OnInit {
 
   }
   //Recuperer un user par son id pour avoir ces domaines
-  
+
   toutcekiconcerneuser: any;
   domaine: any;
 
@@ -90,8 +92,15 @@ export class HomePage implements OnInit {
   username: any
 
   ngOnInit() {
+
+    if (this.memoire == 'true') {
+      this.favori = true;
+    } else {
+      this.favori = false;
+    }
+
     this.idusers= this.token.getUser();
-    this.username= this.token.getUser().id.username;
+    this.username= this.token.getUser().username;
 
     this.citationService.AfficherLesCitationDunUser(this.idusers.id).subscribe(data=>{
       this.toutlescitation= data
@@ -114,14 +123,24 @@ export class HomePage implements OnInit {
 
   //Ajouter favoris
   idcitation: any;
+  favori: boolean = false;
+  memoire : string = localStorage.getItem('favori')!;
+
   bgColor: any;
   AjouterFAvorisPourUsers(idcitation: any){
-    this.citationService.AjouterFavoris(idcitation, this.idusers.id).subscribe(data=>{
-
-
+    this.favoriService.AjouterFavoris(idcitation, this.idusers.id).subscribe(data=>{
+      console.log(data.data)
+      if(data.data == ' favoris enregistré !') {
+        localStorage.setItem('favori','true');
+        //this.favori = true;
+      } else {
+        //this.favori = false;
+        localStorage.setItem('favori','false');
+      }
+      window.location.reload()
     })
   }
-      
+
 
   //Ajouter d'autre domaine a celui deja selectionner lors de l'inscription
 
@@ -145,7 +164,7 @@ export class HomePage implements OnInit {
       Swal.fire({
           title:'Thématique ajouter avec succes',
           heightAuto:false
-          
+
 
       })
 
@@ -154,14 +173,14 @@ export class HomePage implements OnInit {
         Swal.fire({
           title:'Aucune thématiques ajouter',
           heightAuto:false
-          
+
 
       })
 
       }
-      // else(this.listDomaines=[]) 
+      // else(this.listDomaines=[])
       //   this.message
-      
+
     });
     console.log(this.listDomaines)
 
@@ -172,7 +191,7 @@ export class HomePage implements OnInit {
     });
   }
 
-  
+
 
 
 }

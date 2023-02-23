@@ -1,11 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-title class="ion-text-center">Profil</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab/home" text="" icon="arrow-back" style="color: #0b396d ;"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 
-  
+
   <ion-content>
     <div class="container">
       <section class="profile">
@@ -17,7 +21,7 @@
             ></label>
             <!-- <label for="imageuser"><button><ion-badge><i class="bi bi-save" style="color:green"></i></ion-badge></button></label> -->
             <input
-              
+
               id="imageuser"
               type="file"
               name="imageuser"
@@ -30,13 +34,13 @@
 
           <div class="btnn" style="text-align: center;">
             <ion-button fill="clear" routerLink="/password-update/1"
-              >Modifier mot de passe</ion-button>          
+              >Modifier mot de passe</ion-button>
           </div>
         </div>
       </section>
       <section class="settings">
         <div class="setting">
-         
+
           <div class="s-title">
             <h5 style="text-align: center; font-weight: 600">
               Information du compte
@@ -47,21 +51,21 @@
               <span class="label">Nom d'utilisateur</span>
               <span class="content">Roocky</span>
             </div>
-          
+
             <div class="set">
               <span class="label">Email</span>
               <span class="content">rokia@gmail.com</span>
             </div>
           </div>
           <div class="btnn">
-            <ion-button fill="clear" 
+            <ion-button fill="clear"
               >Modifier Compte</ion-button>
           </div>
 
-          <button type="button" class="btn btn-outline-dark bouton" (click)="logout()">Envoyer</button>
+          <button type="button" class="btn btn-outline-dark bouton" (click)="logout()">Déconnexion</button>
 
         </div>
-       
+
       </section>
     </div>
   </ion-content>

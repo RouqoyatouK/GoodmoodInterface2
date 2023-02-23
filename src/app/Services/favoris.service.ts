@@ -13,4 +13,14 @@ env=environment
   AfficherFavorisUsers(idusers: any):Observable<any>{
    return this.http.get(`${this.env.api}/citation/readfav/${idusers}`)
   }
+
+   //Ajouter Favoris
+   AjouterFavoris(idcitation: any, idusers: any): Observable<any>{
+    return this.http.post(`${this.env.api}/citation/addfavoris/${idcitation}/${idusers}`, null)
+  }
+
+  //SupprimerFavoris
+  SupprimerFavorisdunuseurs(idcitation: any, idusers: any):Observable<any>{
+    return this.http.delete(`${this.env.api}/citation/deletefav/${idcitation}/${idusers}`)
+  }
 }

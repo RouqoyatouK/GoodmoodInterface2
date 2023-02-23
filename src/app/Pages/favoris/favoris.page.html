@@ -11,40 +11,37 @@
 
 <ion-content>
   <div class="container essai">
-    
+
   </div>
 
   <div class="div" style="margin-top: 150px;" >
 
-    
 
-    <div class="card">
-  <a href="https://www.gekkode.com/developpement/realiser-une-carte-en-css-card-ui-css/">
-    <div class="card-image">
-      <img src="https://www.gekkode.com/wp-content/uploads/2021/08/orange.jpeg" alt="Orange" />
+
+
+    <div class="test" style="background: #FFFFFF;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0.25, 0.25));
+    border-radius: 12px;" *ngFor="let item of toutlesfavoris">
+  <div class="row" >
+    <div class="col-4" >
+      <div class="text-centre">
+        <img src="../../../assets/2.png" alt="image" style="height: 70px;padding-left: 22px;margin-top: 20px;">
+      </div>
     </div>
+    <div class="col-8 "  >
+      <div class="desc">
+        <h3>Notification</h3>
+        <p style="overflow: auto; height: 80px; width: 200px; text-align: justify; line-height:17px;"> <!-- data-bs-toggle="modal" data-bs-target="#user-info" -->
+         {{item.contenu}} </p>
 
-    <div class="card-body">
+          <ion-icon name="heart" id="{{item.idcitation}}" (click)="SupprimerFav(item.idcitation)" [ngStyle]="{'color': 'red'}" style="zoom:2.0;"></ion-icon>
 
-      <div class="card-date">
-        <time>20 Novembre 1992</time>
       </div>
-
-      <div class="card-title">
-        <h3>Lorem Ipsum</h3>
-      </div>
-
-      <div class="card-excerpt">
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem consectetur voluptate facere at, omnis ab optio placeat officiis! Animi modi harum enim quia veniam consectetur unde autem inventore.</p>
-      </div>
-
     </div>
-  </a>
+  </div>
 </div>
 
-<a style="position: absolute; top:10px; left:0px; right:0px; margin:auto; display:block; text-align:center;" href="https://www.gekkode.com/developpement/realiser-une-carte-en-css-card-ui-css/" target="blank">Voir le tutoriel sur https://www.gekkode.com</a>
-
-   
 
   </div>
 

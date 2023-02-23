@@ -25,4 +25,14 @@ export class FavorisPage implements OnInit {
 
   }
 
+  SupprimerFav(idcitation: any){
+    this.idusers= this.token.getUser();
+
+    this.favorisService.SupprimerFavorisdunuseurs(idcitation, this.idusers.id).subscribe(data=>{
+      console.log(data.data)
+      localStorage.setItem('favori','false')
+      window.location.reload()
+    })
+  }
+
 }

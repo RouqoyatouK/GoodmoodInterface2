@@ -23,7 +23,7 @@ export class CitationService {
     const citation = [{
       "ecrivain": ecrivain,
       "contenu": contenu,
-      
+
       // "superfie": superfie,
       // "coderegion": coderegion,
       // "activite": activite,
@@ -37,8 +37,5 @@ export class CitationService {
   }
 
 
-  //Ajouter Favoris
-  AjouterFavoris(idcitation: any, idusers: any): Observable<any>{
-    return this.http.post(`${this.env.api}/citation/addfavoris/${idcitation}/${idusers}`, null)
-  }
+ 
 }

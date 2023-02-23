@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Partage d'ecris</ion-title>
+    <ion-title class="ion-text-center">Proposition d'ecris et suggestions</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,45 +12,45 @@
     <div class="row">
       <!-- <div class="box">
         <h1>Importer liste</h1>-->
-  
+
         <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6">
         <img src="../../../assets/write.png" alt="">
       </div>
-  
-  
+
+
       <div class="col- col-sm- col-md-6 col-lg-6 col-xl-6">
         <div class="alert alert-primary" role="alert">
           {{message}}
         </div>
-  
+
         <form >
-  
-          
-  
+
+
+
           <div class="input mb-3">
             <label for="inputs" class="form-label">Type Message</label>
             <select class="form-select" aria-label="Disabled select example" name="idtypemessage" [(ngModel)]="idtypemessage">
               <option value="{{list.idtypemessage}}" *ngFor="let list of toutlesypesmessages">{{list.nomtypemessage}}</option>
-             
+
             </select>
           </div>
-         
+
           <div class="input mb-3">
             <label for="inputs" class="form-label">Contenu</label>
             <input id="inputs"  type="text"  class="form-control" id="inputs" required name="cotenumessage" [(ngModel)]="cotenumessage" >
           </div>
-  
-  
-  
-  
-  
+
+
+
+
+
           <button type="button" class="btn btn-outline-dark bouton" (click)="EnvoyerUnMessage()">Envoyer</button>
-  
-  
+
+
         </form>
       </div>
     </div>
-     </div> 
+     </div>
 
   <!-- <ion-grid >
     <ion-row style="text-align: center;">

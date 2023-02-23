@@ -16,7 +16,7 @@ ion-content {
   .main-header {
     height: 45vh;
     width: 150%;
-    background: linear-gradient(90deg, #1D6CCC 10%, #2088E2 100%);
+    background: linear-gradient(90deg, #0b396d 10%, #0b396d 100%);
     box-shadow: 0 1px 10px var(--ion-color-light);
     border-radius: 0 0 50% 50%;
     margin-left: -14vh;
@@ -102,6 +102,10 @@ ion-content {
   }
 }
 
+
+.changecolor{
+  color: #0b396d !important;
+}
 
 
 
@@ -321,16 +325,16 @@ border-bottom-left-radius: 20px;
 
 // left: 0px;
 // top: 0px;
-  
+
 }
 
 
 
 //Afficher les thematiques choisis par user
 .annonce{
-  text-align: center; 
-  position: absolute; 
-  left: 70px; 
+  text-align: center;
+  position: absolute;
+  left: 70px;
   top: 20px;
   text-decoration: none;
 color: black;
