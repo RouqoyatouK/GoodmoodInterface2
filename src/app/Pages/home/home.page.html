@@ -71,13 +71,13 @@
             <div style="overflow: auto; height: 80px; width: 200px; text-align: justify;">
 
 {{item.contenu}}              <div>
-                <div *ngIf="favori">
+                <div *ngIf="isFavori(item.idcitation)">
                  <!-- <button id="heart-button">❤️</button> -->
 
                   <ion-icon name="heart" id="{{item.idcitation}}" (click)="AjouterFAvorisPourUsers(item.idcitation)" [ngStyle]="{'color': 'red' }" style="zoom:2.0;"></ion-icon>
 
                 </div>
-                <div *ngIf="!favori">
+                <div *ngIf="!isFavori(item.idcitation)">
                   <!-- <button id="heart-button">❤️</button> -->
 
                    <ion-icon name="heart" id="{{item.idcitation}}" (click)="AjouterFAvorisPourUsers(item.idcitation)" [ngStyle]="{'color': 'grey' }" style="zoom:2.0;"></ion-icon>

@@ -5,7 +5,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'splash',
     pathMatch:'full'
   },
 
@@ -38,12 +38,12 @@ const routes: Routes = [
     path: 'inscription',
     loadChildren: () => import('./Pages/inscription/inscription.module').then( m => m.InscriptionPageModule)
   },
- 
+
   {
     path: 'sidebar',
     loadChildren: () => import('./PagesAdmin/sidebar/sidebar.module').then( m => m.SidebarPageModule)
   },
- 
+
   {
     path: 'citation',
     loadChildren: () => import('./PagesAdmin/citation/citation.module').then( m => m.CitationPageModule)
@@ -69,8 +69,17 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/profil/profil.module').then( m => m.ProfilPageModule)
   },
 
+  {
+    path: 'splash',
+    loadChildren: () => import('./Pages/splash/splash.module').then( m => m.SplashPageModule)
+  },  {
+    path: 'splashimage',
+    loadChildren: () => import('./Pages/splashimage/splashimage.module').then( m => m.SplashimagePageModule)
+  },
 
- 
+
+
+
 
 
 

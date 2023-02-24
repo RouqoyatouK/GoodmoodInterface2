@@ -24,6 +24,7 @@ export class HomePage implements OnInit {
   //Domaine ajouter users
   iddomaine: ''
   listDomaines: number[] = [];
+  toutlesfavoris:any=[]
 
   // features: any[] = [
   //   {id: 1, name: 'Top Up', src: 'assets/icons/top-up.png', background: 'rgba(27,150,181, 0.1)', page: ''},
@@ -119,6 +120,11 @@ export class HomePage implements OnInit {
       this.domaine=this.toutcekiconcerneuser.domaines
       //console.log(this.domaine)
     })
+
+    this.favoriService.AfficherFavorisUsers(this.idusers.id).subscribe(data=>{
+      console.log(data)
+      this.toutlesfavoris= data;
+      })
   }
 
   //Ajouter favoris
@@ -130,7 +136,8 @@ export class HomePage implements OnInit {
   AjouterFAvorisPourUsers(idcitation: any){
     this.favoriService.AjouterFavoris(idcitation, this.idusers.id).subscribe(data=>{
       console.log(data.data)
-      if(data.data == ' favoris enregistré !') {
+
+      if(data.data == 'favoris enregistré !') {
         localStorage.setItem('favori','true');
         //this.favori = true;
       } else {
@@ -193,5 +200,18 @@ export class HomePage implements OnInit {
 
 
 
+  isFavori(idCitation:any){
+    var isfavorite=false
+
+    this.toutlesfavoris.forEach((favoris: { idcitation: any; }) => {
+
+      if(idCitation==favoris.idcitation){
+        isfavorite=true
+      }
+
+    });
+
+    return isfavorite;
+  }
 
 }

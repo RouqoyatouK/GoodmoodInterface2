@@ -1,0 +1,53 @@
+.cercle {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, #929090);
+  mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  animation: spinner-zp9dbg 1s infinite linear;
+}
+
+.splash {
+  width: 100%;
+
+  img {
+      // height: 100%;
+      width: 100%;
+  }
+}
+
+@keyframes spinner-zp9dbg {
+  to {
+      transform: rotate(1turn);
+  }
+}
+
+
+.background{
+  background-image: url(../../../assets/logooriginal.png);
+  max-width: 100%;
+                    // height: auto;
+                    // background-image: url("images/1.jpg");
+                    // background-size: cover;
+}
+.li{
+
+width: 100% !important;
+height: 100%;
+margin: auto;
+position: fixed;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+
+
+
+
+
