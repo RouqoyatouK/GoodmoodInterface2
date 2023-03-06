@@ -1,4 +1,4 @@
-img{
+#imgform{
     height: 100%;
     width: 100%;
   }
@@ -24,7 +24,6 @@ img{
     outline:none;
   }
   label{
-  font-family: myfon2;
   color:#113E4D ;
   }
   
@@ -40,7 +39,6 @@ img{
   margin-left: auto;
   margin-right: auto;
     letter-spacing: 0.03em;
-    font-family: myfon2;
   }
   
   #import{
@@ -73,3 +71,62 @@ img{
 
       .pagination ::ng-deep .ngx-pagination .current {
         background-color: #000; }
+
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+      
+      
+        .header_fixed {
+          max-height: 100vh;
+          width: 100%;
+         // overflow: auto;
+          border: 1px solid #dddddd;
+        }
+      
+        .header_fixed thead th {
+          position: sticky;
+          top: 0;
+          background-color: #146170;
+          color: white;
+          font-size: 15px;
+        }
+      
+        th,
+        td {
+          border-bottom: 1px solid #dddddd;
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+      
+        td img {
+          height: 60px;
+          width: 60px;
+          border-radius: 100%;
+          border: 5px solid #e6e7e8;
+        }
+      
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+      
+        tr:nth-child(odd) {
+          background-color: #edeef1;
+        }
+      
+        tr:hover td {
+          color: black;
+          cursor: pointer;
+          background-color: #ffffff;
+        }
+      
+        td button {
+          border: none;
+          padding: 7px 20px;
+          border-radius: 20px;
+          background-color: #146170;
+          color: white;
+        }
+      

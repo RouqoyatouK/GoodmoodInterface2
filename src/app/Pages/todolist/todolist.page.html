@@ -29,7 +29,7 @@
           <ion-icon *ngIf="item.value.itemPriority === 'middle'" color="warning" size="small" name="ellipse"></ion-icon>
           <ion-label> {{ item.value.itemName}}</ion-label>
         </ion-item> -->
-        <ion-icon *ngIf="list.priority.nompriority === 'urgent'"  color="danger" size="small" name="ellipse"></ion-icon>
+        <ion-icon *ngIf="list.priority.nompriority === ' urgent '"  color="danger" size="small" name="ellipse"></ion-icon>
         <ion-icon *ngIf="list.priority.nompriority === 'pas urgent'" color="success" size="small" name="ellipse"></ion-icon>
         <ion-icon *ngIf="list.priority.nompriority === ' moins urgent'"  color="warning" size="small" name="ellipse"></ion-icon>
         <ion-label  style="text-transform: capitalize; margin-right: 10px;" [ngStyle]="{'text-decoration-line': list.completed === true ? 'line-through' : 'none'}"> {{list.designation}}</ion-label>
@@ -73,7 +73,7 @@
 
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
-    <ion-fab-button id="open-model" expand="block"  >
+    <ion-fab-button id="open-modelll" expand="block"  >
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
@@ -81,7 +81,7 @@
 
 
 <!--Modallllllll-->
-  <ion-modal trigger="open-model" (willDismiss)="onWillDismiss($event)">
+  <ion-modal trigger="open-modelll" (willDismiss)="onWillDismiss($event)">
     <ng-template>
       <ion-header>
         <ion-toolbar>

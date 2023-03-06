@@ -1,11 +1,12 @@
-<ion-header>
+<ion-header >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <ion-toolbar>
-    <ion-title>accueiladmin</ion-title>
+    <ion-title slot="end" color="black">Accueil</ion-title>
+    <ion-item lines="none">
+      <h1 class="title" slot="start"><img class="title-image" src="../../../assets/logooriginal.png" width="123"  /></h1>
+    </ion-item>
   </ion-toolbar>
 
-  <ion-buttons slot="start">
-    <ion-menu-button></ion-menu-button>
-  </ion-buttons>
 </ion-header>
 
 <ion-content>
@@ -50,7 +51,7 @@
 
     </div>
 
-    <div class="charts">
+    <!-- <div class="charts">
 
       <div class="charts-card">
         <p class="chart-title">Top 5 Products</p>
@@ -64,7 +65,85 @@
         <div id="area-chart"></div>
       </div>
 
-    </div>
+    </div> -->
   </main>
+
+
+   <!--jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj-->
+
+     <div class="container-fluid pt-4 px-4" style="margin-left: -2.2%; width: 104%">
+      <div class="row g-4">
+          <div class="col-12">
+              <div class="bg text-center rounded p-4">
+                  <div class="d-flex justify-content-between">
+                      <div class="d-flex align-items-center justify-content-between mb-4">
+                        <ion-button shape="round" class="btnajut"  >Ajouter </ion-button> 
+                      </div>
+
+                      <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0 py-1" style="font-size: 25px;">La liste des messages</h6>
+                    </div>
+                      <div class="col-md-4">
+                          <div class="d-none d-md-flex ms-4">
+                              <i class="bx bx-search icon fa-2x py-1"></i>
+                              <select class="form-select form-select-md" aria-label=".form-select-sm example" (change)="evenement($event)">
+                                <option  >
+                                  <ion-icon name="funnel-outline" slot="start"></ion-icon>Filtrer par
+                                </option>
+                                <option value="{{recuperertypemessag.idtypemessage}}" *ngFor="let recuperertypemessag of recuperertypemessage" >{{recuperertypemessag.nomtypemessage}}</option>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="header_fixed py-2">
+                      <table >
+                          <thead>
+                              <tr >
+                                  <th>N°</th>
+                                  <th>Message</th>
+                                  <th>Utilisateurs</th>
+                                  <th>Type message</th>
+                                 
+
+                                  <!-- <th>Action</th> -->
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let item of recuperermessagepartype; let i= index " >
+                                  
+                                <td>{{i+1}}</td>
+                                  <td>{{item.cotenumessage}}</td>
+                                  <td>{{item.usersmessage.username}}</td>
+                                  <td>{{item.typemassage.nomtypemessage}}</td>
+                                 
+                                  <!-- <td>  <div class="col" style="display: flex">
+                                          <i data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
+                                              class="bi bi-pencil-square i"
+                                              style="color: rgb(58, 190, 31); font-size: 20px">
+                                          </i>
+                                          &nbsp; &nbsp; &nbsp; &nbsp;
+                                          <i class="bi bi-trash3" style="color: red; font-size: 20px" >
+                                          </i>
+                                      </div>
+                                  </td> -->
+
+                              
+                              </tr>
+                             
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="pag">
+                      <!-- <pagination-controls (pageChange)="p = $event" nextLabel="Suivants" previousLabel="Précedents"
+                        [responsive]="responsive"></pagination-controls> -->
+                    </div>
+                  <div class="pag">
+
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
   <!-- End Main -->
 </ion-content>

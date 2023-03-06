@@ -21,4 +21,18 @@ export class MessageService {
     }
 
     return this.http.post(`${this.env.api}/message/add/${idusers}/${idtypemessage}`, addwrite)}
+
+
+
+    //Afficher tout les message
+    AfficherMessageParType(typemessage: any): Observable<any>{
+      return this.http.get(`${this.env.api}/message/read/${typemessage}`);
+    }
+
+
+    ////Afficher typemessage  /typemessage/read
+
+    Affichertypemessage(): Observable<any>{
+      return this.http.get(`${this.env.api}/typemessage/read`);
+    }
 }

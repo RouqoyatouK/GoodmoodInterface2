@@ -53,6 +53,8 @@ export class PlaningPage implements OnInit {
     this.planningService.AjouterPlanning(this.nomplanning, this.datedebut, this.datefin,  this.user.id).subscribe(data=>{
 console.log(data)
 this.messagee = data.message;
+window.location.reload()
+
     })
     
   }

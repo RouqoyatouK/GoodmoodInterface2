@@ -6,13 +6,13 @@ ion-split-pane {
 
 
   ion-menu {
-    --background: linear-gradient(#EBBFD0, #113E4D) !important;
+    --background: linear-gradient(#f3d1be, #113E4D) !important;
 
     ion-content {
-      --background: linear-gradient(#EBBFD0, #113E4D) !important;
+      --background: linear-gradient(#f3d1be, #113E4D) !important;
 
       ion-item {
-        --background:linear-gradient(#EBBFD0, #113E4D) !important;
+        --background:linear-gradient(#f3d1be, #113E4D) !important;
         --color: #FFFFFF !important;
         letter-spacing: 2px;
         // font-family: myfon1;
@@ -73,9 +73,7 @@ ion-split-pane {
         display: inline;
       }
 
-      .active-item .Desactive {
-        display: none;
-      }
+     
 
       // style appliquer au button de deconnexion
       .butonDeconnexion {

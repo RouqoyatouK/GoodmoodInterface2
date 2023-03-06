@@ -31,11 +31,11 @@
     </div>
     <div class="col-8 "  >
       <div class="desc">
-        <h3>Notification</h3>
-        <p style="overflow: auto; height: 80px; width: 200px; text-align: justify; line-height:17px;"> <!-- data-bs-toggle="modal" data-bs-target="#user-info" -->
+        <h3>{{item.ecrivain}}</h3>
+        <p style="overflow: auto; height: 80px; width: 200px; text-align: justify; line-height:17px; "> <!-- data-bs-toggle="modal" data-bs-target="#user-info" -->
          {{item.contenu}} </p>
 
-          <ion-icon name="heart" id="{{item.idcitation}}" (click)="SupprimerFav(item.idcitation)" [ngStyle]="{'color': 'red'}" style="zoom:2.0;"></ion-icon>
+          <ion-icon name="heart" id="{{item.idcitation}}" (click)="SupprimerFav(item.idcitation)" [ngStyle]="{'color': 'red'}" style="zoom:2.5;"></ion-icon>
 
       </div>
     </div>

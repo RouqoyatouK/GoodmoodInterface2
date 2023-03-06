@@ -4,7 +4,6 @@ body {
     box-sizing: border-box;
     background-color: #e6e8ed;
     color: #666666;
-    font-family: "Montserrat", sans-serif;
   }
   
   .material-icons-outlined {
@@ -293,3 +292,109 @@ body {
       display: none;
     }
   }
+
+
+
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+
+  .header_fixed {
+    max-height: 100vh;
+    width: 100%;
+   // overflow: auto;
+    border: 1px solid #dddddd;
+  }
+
+  .header_fixed thead th {
+    position: sticky;
+    top: 0;
+    background-color: #0a0f14;
+    color: white;
+    font-size: 15px;
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  td img {
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    border: 5px solid #e6e7e8;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #edeef1;
+  }
+
+  tr:hover td {
+    color: black;
+    cursor: pointer;
+    background-color: #ffffff;
+  }
+
+  // td button {
+  //   border: none;
+  //   padding: 7px 20px;
+  //   border-radius: 20px;
+  //   background-color: #0b396d;
+  //   color: white;
+  // }
+
+  
+  
+
+  
+  .button-native {
+    border-radius: var(--border-radius);
+    -webkit-font-smoothing: antialiased;
+    margin: 0px;
+    padding-left: var(--padding-start);
+    padding-right: var(--padding-end);
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    text-decoration: inherit;
+    text-indent: inherit;
+    text-overflow: inherit;
+    text-transform: inherit;
+    text-align: inherit;
+    white-space: inherit;
+    color: inherit;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: var(--transition);
+    border-width: var(--border-width);
+    border-style: var(--border-style);
+    border-color: var(--border-color);
+    outline: none;
+    line-height: 1;
+    box-shadow: var(--box-shadow);
+    contain: layout style;
+    cursor: pointer;
+    opacity: var(--opacity);
+    overflow: var(--overflow);
+    z-index: 0;
+    box-sizing: border-box;
+    appearance: none;
+    background: #367952 !important;
+}

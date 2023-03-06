@@ -46,24 +46,29 @@
         <!-- le reste des contenu de sidebar -->
         <div class="row mt-2 ">
 
-          <ion-item  lines="none" routerDirection='root' [routerLinkActiveOptions]={exact:true} routerLink="/sidebar/sidebar/accueiladmin"
-            routerLinkActive='active-item'>
-            <img class="ion-icon Active" src="../assets/icon/icon/accueil une fois active.png" alt="" srcset="">
-            <img class="ion-icon Desactive" src="../assets/icon/icon/accueil.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
+          <ion-item   routerLink="/sidebar/sidebar/accueiladmin"
+            >
+            <img class="ion-icon " src="../assets/icon/icon/accueil une fois active.png" alt="" srcset="">
+            <ion-icon name="home-outline" color="white"></ion-icon>
+              &nbsp;&nbsp;&nbsp;
             <ion-label class="lienPage">Accueil</ion-label>
           </ion-item>
 
 
-          <ion-item  lines="none" routerLink="/sidebar/sidebar/domaine" routerLinkActive='active-item'>
-            <img class="ion-icon Desactive" src="../assets/icon/icon/accueil.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
-            <ion-label class="lienPage">Domaine</ion-label>
+          <ion-item   routerLink="/sidebar/sidebar/domaine" >
+            <img class="ion-icon " src="../assets/icon/icon/accueil.png" alt="" srcset="">
+            <ion-icon name="folder-open-outline" color="white"></ion-icon>
+            &nbsp;&nbsp;&nbsp;
+            <ion-label class="lienPage" >Thématiques</ion-label>
           </ion-item>
 
-          <ion-item  lines="none" routerDirection='root' [routerLinkActiveOptions]={exact:true} routerLink="/sidebar/sidebar/citation"
-          routerLinkActive='active-item'>
+          <ion-item   routerLink="/sidebar/sidebar/citation"
+          >
           <img class="ion-icon Active" src="../assets/icon/icon/accueil une fois active.png" alt="" srcset="">
-          <img class="ion-icon Desactive" src="../assets/icon/icon/accueil.png" alt="" srcset=""> &nbsp;&nbsp;&nbsp;
-          <ion-label class="lienPage">Citation</ion-label>
+          <img class="ion-icon Desactive" src="../assets/icon/icon/accueil.png" alt="" srcset="">
+          <ion-icon name="book-outline" color="white"></ion-icon> 
+          &nbsp;&nbsp;&nbsp;
+          <ion-label class="lienPage">Contenu</ion-label>
         </ion-item>
 
         

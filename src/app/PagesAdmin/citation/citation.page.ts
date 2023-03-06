@@ -8,7 +8,8 @@ import { DomaineService } from 'src/app/Services/domaine.service';
   styleUrls: ['./citation.page.scss'],
 })
 export class CitationPage implements OnInit {
-
+  //Pagination
+  pages : number = 1;
   constructor(private citationService: CitationService, private domaineService: DomaineService) { }
 
 
